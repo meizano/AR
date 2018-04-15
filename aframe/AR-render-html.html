@@ -1,0 +1,33 @@
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="library/aframe-html-shader.min.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='trackingMethod: best;' update-html>
+        <a-anchor hit-testing-enabled='true'>
+
+
+            <!-- Emoji. -->
+            <a-entity id="emojiEntity" geometry="primitive: box; width: 3; height: 3; depth: 3" rotation="30 60 30" position="-2 2.5 -4.5" material="shader: html; target: #emoji; transparent: true; ratio: height; fps: 0.3; side: double"></a-entity>
+
+            <!-- Letters. -->
+            <a-entity id="lettersEntity" geometry="primitive: plane; width: 2; height: 2" rotation="-30 -30 0" position="-0.2 1.5 -2.5" material="shader: html; target: #target; transparent: true; ratio: width; fps: 1.5"></a-entity>
+
+            <!-- Sky. -->
+            <a-sky color="pink"></a-sky>
+
+
+            <!-- HTML to render as a material. -->
+            <div id="htmlTarget" class="hide">
+                <div id="emoji">〠</div>
+                <div id="target">
+                    <h1>HELLO<span>★</span></h1>
+                    <span id="pre">A</span>
+                </div>
+            </div>
+
+
+        </a-anchor>
+        <a-camera-static/>
+    </a-scene>
+</body>
