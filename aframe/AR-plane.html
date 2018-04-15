@@ -1,0 +1,13 @@
+<script src="library/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='trackingMethod: best;'>
+        <a-anchor hit-testing-enabled='true'>
+            <a-plane width="2" height="1" position='0 0 0' rotation= "-90 0 0" color="blue" material='opacity: 0.5;'>
+                <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
+            </a-plane>
+        </a-anchor>
+        <a-camera-static/>
+    </a-scene>
+</body>
