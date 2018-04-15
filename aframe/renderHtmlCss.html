@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>A-Frame HTML Shader - Basic</title>
+    <script src="library/aframe.min.js"></script>
+    <script src="library/aframe-html-shader.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity geometry="primitive: box" material="shader: html; target: #boxHTML" position="0 0 -5"></a-entity>
+      <a-plane material="shader: html; target: #planeHTML; ratio: height; transparent: true; side: double" position="0 2 -6"></a-plane>
+      <a-sky material="shader: html; target: #skyHTML"></a-sky>
+    </a-scene>
+
+    <!-- HTML to render as a material. -->
+    <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
+      <div id="boxHTML" style="background-image: url(assets/PD-sabit-tumit.png); color: white; width: 500px; height: 500px; font-size: 64px; font-family: monospace; text-align: center">
+        <p style="background: rgb(30, 30, 30); position: absolute; top: 25px; width: 500px">Tendangan Sabit</p>
+      </div>
+    </div>
+    <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
+      <div id="planeHTML" style="background: linear-gradient(red, yellow, green); width: 500px; height: 200px; font-size: 64px; padding-top: 15px; color: #222; font-weight: 600; display: flex; align-items: center; text-align: center; border-radius: 200px">
+        <p style="border: 1px #FFF">Bela Diri?</p>
+      </div>
+    </div>
+    <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
+      <div id="skyHTML" style="background: linear-gradient(to top, #222, #EEE); width: 500px; height: 800px; font-size: 100px; color: #111">
+        <p>SELAMAT DATANG</p>
+        <p>HA HA HA</p>
+        <p>JANGAN LIHAT BAWAH</p>
+      </div>
+    </div>
+  </body>
+</html>
