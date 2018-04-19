@@ -2,9 +2,16 @@
   <html>
   <head>
     <title>AR.js: Multiple Marker</title>
-    <script src="library/aframe.min.js"></script>
+    <script src="aframe/library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
-    <script src="library/aframe-ar.js"></script>
+    <script src="aframe/library/aframe-ar.js"></script>
+    <!-- Hide Debug UI -->
+    <style>
+      #arjsDebugUIContainer {
+          display: none;
+          visibility: hidden;
+        }
+      </style>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -25,7 +32,7 @@
 		</a-marker>
 
 		<!-- handle matrix marker -->
-		<a-marker preset='custom' type='pattern' url='assets/marker/marker-datamatrix-1234567890.patt'>
+		<a-marker preset='custom' type='pattern' url='aframe/assets/marker/marker-datamatrix-1234567890.patt'>
 			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
 				<a-torus-knot radius='0.26' radius-tubular='0.05'>
 					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
