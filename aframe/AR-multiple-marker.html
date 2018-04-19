@@ -7,16 +7,18 @@
     <!-- include aframe-ar.js -->
     <script src="library/aframe-ar.js"></script>
     <!-- Hide Debug UI -->
+<!--
     <style>
         #arjsDebugUIContainer {
             display: none;
             visibility: hidden;
         }
     </style>
+-->
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- handle unknown marker -->
         <!-- <a-marker type='unknown'>
 			<a-box depth="1" height="1" width="1" position='0 0.5 0' material='opacity: 0.5; side:double; color:blue;'></a-box>
