@@ -1,11 +1,77 @@
-<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>AR.js: Multiple Marker</title>
+    <script src="library/aframe.min.js"></script>
+    <!-- include aframe-ar.js -->
+    <script src="library/aframe-ar.js"></script>
+</head>
+
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='trackingMethod: best;'>
-      <a-anchor hit-testing-enabled='true'>
-   		<a-plane position='0 0.5 0' material='opacity: 0.5;'></a-plane>
-      </a-anchor>
-		<a-camera-static/>
+    <a-scene embedded arjs='trackingMethod: best;'>
+
+       <!-- handle unknown marker -->
+		<!-- <a-marker type='unknown'>
+			<a-box depth="1" height="1" width="1" position='0 0.5 0' material='opacity: 0.5; side:double; color:blue;'></a-box>
+		</a-marker> -->
+
+		<!-- handle hiro marker -->
+		<a-marker preset='hiro'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+
+		<!-- handle matrix marker -->
+		<a-marker preset='custom' type='pattern' url='assets/marker/marker-datamatrix-1234567890.patt'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+
+		<!-- handle kanji marker -->
+		<a-marker preset='kanji'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:green;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+
+		<!-- handle barcode 5 marker -->
+		<a-marker type='barcode' value='5'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+
+		<!-- handle  barcode 8 marker -->
+		<a-marker type='barcode' value='8'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:yellow;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+
+		<!-- handle  barcode 13 marker -->
+		<a-marker type='barcode' value='13'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:black;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+
+
+		<!-- add a simple camera -->
+		<a-entity camera></a-entity>
 	</a-scene>
 </body>
+</html>
