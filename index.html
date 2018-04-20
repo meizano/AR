@@ -21,10 +21,10 @@
     <a-asset-item id="motorbike" src="aframe/assets/motorbike/scene.gltf"></a-asset-item>
     <a-asset-item id="helmet" src="aframe/assets/damagedHelmet/damagedHelmet.gltf"></a-asset-item>
     <a-asset-item id="skull" src="aframe/assets/skull_downloadable/scene.gltf"></a-asset-item>
-    <a-asset-item id="foto1" src="images/photo/DSC00013.jpg"></a-asset-item>
-    <a-asset-item id="foto2" src="images/photo/DSC00016.jpg"></a-asset-item>
-    <a-asset-item id="foto3" src="images/photo/DSC02977.jpg"></a-asset-item>
-    <a-asset-item id="foto4" src="images/photo/DSC03357.jpg"></a-asset-item>
+    <a-asset-item id="foto1" src="./images/photo/DSC00013.jpg"></a-asset-item>
+    <a-asset-item id="foto2" src="./images/photo/DSC00016.jpg"></a-asset-item>
+    <a-asset-item id="foto3" src="./images/photo/DSC02977.jpg"></a-asset-item>
+    <a-asset-item id="foto4" src="./images/photo/DSC03357.jpg"></a-asset-item>
 
 </a-assets>
 
@@ -46,7 +46,7 @@
 
         <!-- handle custom marker -->
         <a-marker preset='custom' type='pattern' url='aframe/assets/marker/marker-datamatrix-1234567890.patt'>
-            <a-image src="#foto1" rotation="-90 0 0" width="4" height="3"></a-image>
+            <a-image src="#foto1" rotation="-90 0 0" width="4" height="3" position="-1 0 -1"></a-image>
         </a-marker>
 
         <!-- handle matrix marker -->
@@ -104,7 +104,11 @@
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='7'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto3"></a-plane>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto3">
+                <a-text value="Bunga" color="#111" position="0 -0.7 0" align="center"></a-text>
+                <a-sphere color="blue" position="-0.7 -0.7 0" radius="0.2"></a-sphere>
+                <a-sphere color="red" position="0.7 -0.7 0" radius="0.2"></a-sphere>
+            </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
