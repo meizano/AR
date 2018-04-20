@@ -6,8 +6,10 @@
     <script src="./library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="./library/aframe-ar.js"></script>
+    <!-- include text geometry -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
     <!-- Hide Debug UI -->
-<!--
+    <!--
     <style>
         #arjsDebugUIContainer {
             display: none;
@@ -16,9 +18,19 @@
     </style>
 -->
 </head>
+<a-assets>
+    <a-asset-item id="drone" src="./assets/busterDrone/busterDrone.gltf"></a-asset-item>
+    <a-asset-item id="motorbike" src="./assets/motorbike/scene.gltf"></a-asset-item>
+    <a-asset-item id="helmet" src="./assets/damagedHelmet/damagedHelmet.gltf"></a-asset-item>
+    <a-asset-item id="skull" src="./assets/skull_downloadable/scene.gltf"></a-asset-item>
+    <a-asset-item id="foto1" src="../images/photo/DSC00013.jpg"></a-asset-item>
+    <a-asset-item id="foto2" src="../images/photo/DSC00016.jpg"></a-asset-item>
+    <a-asset-item id="foto3" src="../images/photo/DSC02977.jpg"></a-asset-item>
+    <a-asset-item id="foto4" src="../images/photo/DSC03357.jpg"></a-asset-item>
+<a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
+</a-assets>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-
     <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- handle unknown marker -->
         <!-- <a-marker type='unknown'>
@@ -36,11 +48,7 @@
 
         <!-- handle custom marker -->
         <a-marker preset='custom' type='pattern' url='./assets/marker/marker-datamatrix-1234567890.patt'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
-                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                </a-torus-knot>
-            </a-box>
+            <a-image src="#foto1" rotation="-90 0 0" width="4" height="3" position="-1 0 -1"></a-image>
         </a-marker>
 
         <!-- handle matrix marker -->
@@ -64,7 +72,7 @@
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='2'>
             <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="green">
-                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+                <a-gltf-model src="#motorbike" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
             </a-plane>
         </a-marker>
 
@@ -80,39 +88,40 @@
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='4'>
             <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="cyan">
-                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+                <a-gltf-model src="#drone" rotation="90 0 0" position='0 -0.2 1' scale="0.5 0.5 0.5"></a-gltf-model>
             </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='5'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:magenta;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
-                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                </a-torus-knot>
-            </a-box>
+            <a-image src="#foto2" rotation="-90 0 0"></a-image>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='6'>
             <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="purple">
-                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+                <a-gltf-model src="#helmet" rotation="90 0 0" position='0 -0.2 0.5' scale="0.5 0.5 0.5"></a-gltf-model>
             </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='7'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:brown;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
-                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                </a-torus-knot>
-            </a-box>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto3">
+                <a-text value="Bunga" color="#111" position="0 -0.7 0" align="center"></a-text>
+                <a-sphere color="blue" position="-0.7 -0.7 0" radius="0.2"></a-sphere>
+                <a-sphere color="red" position="0.7 -0.7 0" radius="0.2"></a-sphere>
+            </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='8'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white">
-                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto4">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="0.7 -0.7 0">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-0.7 -0.7 0">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
             </a-plane>
         </a-marker>
 
@@ -128,7 +137,26 @@
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='10'>
             <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="black">
-                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+                <a-gltf-model src="#skull" rotation="90 0 0" position='0 -0.2 0.5' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='59'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto1" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
             </a-plane>
         </a-marker>
 
