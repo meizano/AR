@@ -3,9 +3,9 @@
 
 <head>
     <title>AR.js: Multiple Marker</title>
-    <script src="library/aframe.min.js"></script>
+    <script src="./library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
-    <script src="library/aframe-ar.js"></script>
+    <script src="./library/aframe-ar.js"></script>
     <!-- Hide Debug UI -->
 <!--
     <style>
@@ -18,6 +18,7 @@
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
     <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- handle unknown marker -->
         <!-- <a-marker type='unknown'>
@@ -34,7 +35,7 @@
         </a-marker>
 
         <!-- handle custom marker -->
-        <a-marker preset='custom' type='pattern' url='assets/marker/marker-datamatrix-1234567890.patt'>
+        <a-marker preset='custom' type='pattern' url='./assets/marker/marker-datamatrix-1234567890.patt'>
             <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
                 <a-torus-knot radius='0.26' radius-tubular='0.05'>
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
@@ -43,8 +44,65 @@
         </a-marker>
 
         <!-- handle matrix marker -->
+        <a-marker type='barcode' value='0'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='1'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='2'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="green">
+                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='3'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='4'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="cyan">
+                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
         <a-marker type='barcode' value='5'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:magenta;'>
+                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='6'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="purple">
+                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='7'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:brown;'>
                 <a-torus-knot radius='0.26' radius-tubular='0.05'>
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
@@ -53,11 +111,25 @@
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='8'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:yellow;'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white">
+                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='9'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
                 <a-torus-knot radius='0.26' radius-tubular='0.05'>
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
             </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='10'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="black">
+                <a-gltf-model src="./assets/scene.gltf" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
         </a-marker>
 
         <!-- handle kanji marker -->
