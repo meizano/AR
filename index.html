@@ -6,6 +6,8 @@
     <script src="aframe/library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="aframe/library/aframe-ar.js"></script>
+    <!-- include text geometry -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
     <!-- Hide Debug UI -->
     <!--
     <style>
@@ -25,7 +27,7 @@
     <a-asset-item id="foto2" src="./images/photo/DSC00016.jpg"></a-asset-item>
     <a-asset-item id="foto3" src="./images/photo/DSC02977.jpg"></a-asset-item>
     <a-asset-item id="foto4" src="./images/photo/DSC03357.jpg"></a-asset-item>
-
+<a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
 </a-assets>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
@@ -143,13 +145,17 @@
         <a-marker type='barcode' value='59'>
             <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
             <a-plane width="6" height="4.5" src="#foto1" position="0 0 0.5">
-                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
-                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
-                <a-text value="Bunga" color="#111" position="0 -2.5 0" align="center"></a-text>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
             </a-plane>
             </a-plane>
         </a-marker>
