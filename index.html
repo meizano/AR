@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>AR.js: Multiple Marker</title>
+    <title>Galeri Lomba Fotografi Engineering Expo 2018 </title>
     <script src="aframe/library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="aframe/library/aframe-ar.js"></script>
@@ -20,15 +20,24 @@
 </head>
 <a-assets>
    <a-asset-item id="EE" src="./images/EE.png"></a-asset-item>
-    <a-asset-item id="drone" src="./aframe/assets/busterDrone/busterDrone.gltf"></a-asset-item>
-    <a-asset-item id="motorbike" src="./aframe/assets/motorbike/scene.gltf"></a-asset-item>
-    <a-asset-item id="helmet" src="./aframe/assets/damagedHelmet/damagedHelmet.gltf"></a-asset-item>
-    <a-asset-item id="skull" src="./aframe/assets/skull_downloadable/scene.gltf"></a-asset-item>
-    <a-asset-item id="foto1" src="./images/photo/DSC00013.jpg"></a-asset-item>
-    <a-asset-item id="foto2" src="./images/photo/DSC00016.jpg"></a-asset-item>
-    <a-asset-item id="foto3" src="./images/photo/DSC02977.jpg"></a-asset-item>
-    <a-asset-item id="foto4" src="./images/photo/DSC03357.jpg"></a-asset-item>
-    <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
+    	<a-asset-item id="foto1" src="./images/photo/1.jpg"></a-asset-item>
+	<a-asset-item id="foto2" src="./images/photo/4.jpg"></a-asset-item>
+	<a-asset-item id="foto3" src="./images/photo/5.jpg"></a-asset-item>
+	<a-asset-item id="foto4" src="./images/photo/6.jpg"></a-asset-item>
+	<a-asset-item id="foto5" src="./images/photo/7.jpg"></a-asset-item>
+	<a-asset-item id="foto6" src="./images/photo/8.jpg"></a-asset-item>
+	<a-asset-item id="foto7" src="./images/photo/9.jpg"></a-asset-item>
+	<a-asset-item id="foto8" src="./images/photo/10.jpg"></a-asset-item>
+	<a-asset-item id="foto9" src="./images/photo/11.jpg"></a-asset-item>
+	<a-asset-item id="foto10" src="./images/photo/12.jpg"></a-asset-item>
+	<a-asset-item id="foto11" src="./images/photo/13.jpg"></a-asset-item>
+	<a-asset-item id="foto12" src="./images/photo/14.jpg"></a-asset-item>
+	<a-asset-item id="foto13" src="./images/photo/16.jpg"></a-asset-item>
+	<a-asset-item id="foto14" src="./images/photo/17.jpg"></a-asset-item>
+	<a-asset-item id="foto15" src="./images/photo/18.jpg"></a-asset-item>
+	<a-asset-item id="foto16" src="./images/photo/19.jpg"></a-asset-item>
+	<a-asset-item id="foto17" src="./images/photo/20.jpg"></a-asset-item>
+<a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
 </a-assets>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
@@ -40,120 +49,328 @@
 
         <!-- handle hiro marker -->
         <a-marker preset='hiro'>
-            <a-box position='0 0.5 0' src="#EE">
-                <a-animation attribute="rotation" to="0 0 360" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;' src='#EE'>
+                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+                    <a-animation attribute="rotation" to="0 0 360" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
             </a-box>
-        </a-marker>
-
-        <!-- handle custom marker -->
-        <a-marker preset='custom' type='pattern' url='aframe/assets/marker/marker-datamatrix-1234567890.patt'>
-            <a-image src="#foto1" rotation="-90 0 0" width="4" height="3" position="-1 0 -1"></a-image>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='0'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto1" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
-            </a-box>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Bahu Membahu; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Bahu Membahu; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
         </a-marker>
+
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='1'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto2" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
-            </a-box>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Bersama Menuju Puncak; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Bersama Menuju Puncak; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
         </a-marker>
-
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='2'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="green">
-                <a-gltf-model src="#motorbike" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto3" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Bersama Menuju Puncak2; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Bersama Menuju Puncak2; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
             </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='3'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto4" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
                     <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-torus-knot>
-            </a-box>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Foto Kenangan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Foto Kenangan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='4'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="cyan">
-                <a-gltf-model src="#drone" rotation="90 0 0" position='0 -0.2 1' scale="0.5 0.5 0.5"></a-gltf-model>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto5" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Generasi Masa Depan: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Generasi Masa Depan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
             </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='5'>
-            <a-image src="#foto2" rotation="-90 0 0"></a-image>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto6" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: HIMATRO Luar Biasa; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  HIMATRO Luar Biasa; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
         </a-marker>
-
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='6'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="purple">
-                <a-gltf-model src="#helmet" rotation="90 0 0" position='0 -0.2 0.5' scale="0.5 0.5 0.5"></a-gltf-model>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto7" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Persaudarian: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Persaudarian; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
             </a-plane>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type='barcode' value='7'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto3">
-                <a-text value="Bunga" color="#111" position="0 -0.7 0" align="center"></a-text>
-                <a-sphere color="blue" position="-0.7 -0.7 0" radius="0.2"></a-sphere>
-                <a-sphere color="red" position="0.7 -0.7 0" radius="0.2"></a-sphere>
-            </a-plane>
-        </a-marker>
-
-        <!-- handle matrix marker -->
-        <a-marker type='barcode' value='8'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto4">
-                <a-torus-knot radius='0.06' radius-tubular='0.05' position="0.7 -0.7 0">
-                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                </a-torus-knot>
-                <a-torus-knot radius='0.06' radius-tubular='0.05' position="-0.7 -0.7 0">
-                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                </a-torus-knot>
-            </a-plane>
-        </a-marker>
-
-        <!-- handle matrix marker -->
-        <a-marker type='barcode' value='9'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'>
-                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                </a-torus-knot>
-            </a-box>
-        </a-marker>
-
-        <!-- handle matrix marker -->
-        <a-marker type='barcode' value='10'>
-            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="black">
-                <a-gltf-model src="#skull" rotation="90 0 0" position='0 -0.2 0.5' scale="0.5 0.5 0.5"></a-gltf-model>
-            </a-plane>
-        </a-marker>
-
-        <!-- handle matrix marker -->
-        <a-marker type='barcode' value='59'>
             <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
-                <a-plane width="6" height="4.5" src="#foto1" position="0 0 0.5">
-                    <a-torus-knot radius='0.06' radius-tubular='0.05' position="3.5 -2 0" color="blue">
-                        <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                    </a-torus-knot>
-                    <a-torus-knot radius='0.06' radius-tubular='0.05' position="-3.5 -2 0" color="blue">
-                        <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                    </a-torus-knot>
-                    <!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
-                    <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;" material="shader: flat; color: blue"></a-entity>
-                    <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1" material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
-                </a-plane>
+            <a-plane width="6" height="4.5" src="#foto8" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Indahnya Kebersamaan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Indahnya Kebersamaan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+         <a-marker type='barcode' value='8'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto9" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Kebersamaan Awal Kesuksesan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Kebersamaan Awal Kesuksesan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+         <a-marker type='barcode' value='9'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto10" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Kebersamaan Awal Kesuksesan2; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Kebersamaan Awal Kesuksesan2: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+         <a-marker type='barcode' value='11'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto12" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Kebersamaan di Lapangan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Kebersamaan di Lapangan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='12'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto13" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Efek Samping Tanding; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Efek Samping Tanding; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+		<!-- handle matrix marker -->
+         <a-marker type='barcode' value='14'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto15" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Pertandingan Bukan Memecahbelah; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Pertandingan Bukan Memecahbelah; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+		<a-marker type='barcode' value='15'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto16" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Semangat Menuntut Ilmu: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Semangat Menuntut Ilmu; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+		<!-- handle matrix marker -->
+		<a-marker type='barcode' value='16'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto17" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Sketsa pra pensketsa: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Sketsa pra pensketsa; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+		<!-- handle matrix marker -->
+		<a-marker type='barcode' value='17'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto18" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Tendangan Gocekan: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Tendangan Gocekan; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
+            </a-plane>
+        </a-marker>
+		<!-- handle matrix marker -->
+		<a-marker type='barcode' value='18'>
+            <a-plane width="8" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+            <a-plane width="6" height="4.5" src="#foto19" position="0 0 0.5">
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05'  position="-3.5 -2 0"  color="blue">
+                    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-torus-knot>
+<!--                <a-text value="Kio" color="#111" position="0 -2.5 0" align="center"></a-text>-->
+           <a-entity position="0 -2.5 0" text-geometry="value: Sketsa pra pensketsa: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                  material="shader: flat; color: blue"></a-entity>
+        <a-entity position="0 -2.5 0" text-geometry="value:  Sketsa pra pensketsa; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                  material="shader: flat; color: blue; transparent: true; opacity: 0.2"></a-entity>
+            </a-plane>
             </a-plane>
         </a-marker>
 
