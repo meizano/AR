@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <script src="./library/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-camera position="2 2 5"></a-camera>
+    </a-scene>
+    <script>
+        // Fungsi membuat obyek tulisan pada a-frame
+        function listRuang(ruang, scenel) {
+            for (let i = 0; i < ruang.length; i++) {
+                let labelRuangan = document.createElement('a-text');
+                let informasi = "";
+                informasi += ruang[i].nama + " sedang " + ruang[i].dipakai;
+                labelRuangan.setAttribute('value', informasi);
+
+                labelRuangan.setAttribute('color', 'green');
+                labelRuangan.setAttribute('position', {
+                    x: -(3 * i) - 2,
+                    y: 2,
+                    z: -2
+                });
+                scenel.appendChild(labelRuangan);
+            }
+        }
+
+        // Variabel penampung nilai dari server
+        var ruanganJSON = {};
+
+        // Membuat data array lokal
+        var ruangan = [{
+            "nama": "H17",
+            "dipakai": "dipakai"
+        }, {
+            "nama": "H18",
+            "dipakai": "dipakai"
+        }, {
+            "nama": "H19",
+            "dipakai": " tidak dipakai"
+        }, {
+            "nama": "H20",
+            "dipakai": "dipakai"
+        }, ]
+
+        // Isi nilai sementara dengan data yang ada
+        ruanganJSON = ruangan;
+
+        // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+
+        // Mengambil data JSON dari server
+        var url = './dispatcher/data.json'; // URL dari data JSON
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function(data) {
+                ruanganJSON = data; // isi nilai data dengan yang dari server
+                listRuang(ruanganJSON, scene); // membuat obyek
+
+            })
+            .catch(function(error) {
+                console.log(JSON.stringify(error));
+            });
+
+        // Membuat obyek dari data array lokal
+        for (let i = 0; i < ruangan.length; i++) {
+            let labelRuangan = document.createElement('a-text');
+            let informasi = "";
+            informasi += ruangan[i].nama + " sedang " + ruangan[i].dipakai;
+            labelRuangan.setAttribute('value', informasi);
+
+            labelRuangan.setAttribute('color', 'blue');
+            labelRuangan.setAttribute('position', {
+                x: (3 * i) + 2,
+                y: 2,
+                z: -2
+            });
+            scene.appendChild(labelRuangan);
+        }
+
+        // Membuat obyek dengan JS
+        var bola = document.createElement('a-sphere');
+        bola.setAttribute('material', {
+            'color': 'yellow'
+        });
+        scene.appendChild(bola);
+    </script>
+</body>
+</html>

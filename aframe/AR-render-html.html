@@ -1,11 +1,11 @@
-<!doctype html>
- <html>
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <script src="library/aframe.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <script src="library/aframe-html-shader.min.js"></script>
+    <script src="./library/aframe.min.js"></script>
+    <script src="./library/aframe-ar.js"></script>
+    <script src="./library/aframe-html-shader.min.js"></script>
     <style type="text/css">
         #target {
             width: 512px;
@@ -128,11 +128,10 @@
             }
         });
     </script>
-
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='trackingMethod: best;' update-html>
+    <a-scene embedded arjs update-html>
         <a-anchor hit-testing-enabled='true'>
 
 
@@ -141,10 +140,6 @@
 
             <!-- Letters. -->
             <a-entity id="lettersEntity" geometry="primitive: plane; width: 1; height: 1" rotation="-90 0 0" position="0 0.1 0" material="shader: html; target: #target; transparent: true; ratio: width; fps: 1.5"></a-entity>
-
-            <!-- Sky. -->
-            <a-sky color="pink"></a-sky>
-
 
             <!-- HTML to render as a material. -->
             <div id="htmlTarget" class="hide">
