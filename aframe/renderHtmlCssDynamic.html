@@ -130,15 +130,13 @@
 </head>
 
 <body>
-    <a-scene update-html>
+    <a-scene update-html background="color: pink">
         <!-- Emoji. -->
         <a-entity id="emojiEntity" geometry="primitive: box; width: 3; height: 3; depth: 3" rotation="30 60 30" position="-2 2.5 -4.5" material="shader: html; target: #emoji; transparent: true; ratio: height; fps: 0.3; side: double"></a-entity>
 
         <!-- Letters. -->
         <a-entity id="lettersEntity" geometry="primitive: plane; width: 2; height: 2" rotation="-30 -30 0" position="-0.2 1.5 -2.5" material="shader: html; target: #target; transparent: true; ratio: width; fps: 1.5"></a-entity>
 
-        <!-- Sky. -->
-        <a-sky color="pink"></a-sky>
     </a-scene>
 
     <!-- HTML to render as a material. -->
