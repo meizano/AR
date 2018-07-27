@@ -44,22 +44,16 @@
         var ruanganJSON = {};
 
         // Membuat data array lokal
-        var ruangan = [{
-            "nama": "H17",
-            "dipakai": "dipakai"
+        var infoSpot = [{
+            "nama": "Alif Stone Park",
+            "deskripsi": "Alif Stone Park adalah tempat wisata batu"
         }, {
-            "nama": "H18",
-            "dipakai": "dipakai"
-        }, {
-            "nama": "H19",
-            "dipakai": " tidak dipakai"
-        }, {
-            "nama": "H20",
-            "dipakai": "dipakai"
-        }, ]
+            "nama": "Asking Stone",
+            "deskripsi": "Batu bertanya"
+        }]
 
         // Isi nilai sementara dengan data yang ada
-        ruanganJSON = ruangan;
+        infoSpotJSON = infoSpot;
 
         // mengakses DOM scene
         scene = document.querySelector("a-scene");
@@ -72,8 +66,8 @@
         fetch(url)
             .then((resp) => resp.json())
             .then(function(data) {
-                ruanganJSON = data; // isi nilai data dengan yang dari server
-                listRuang(ruanganJSON, scene); // membuat obyek
+                infoSpotJSON = data; // isi nilai data dengan yang dari server
+                listRuang(infoSpotJSON, scene); // membuat obyek
 
             })
             .catch(function(error) {
@@ -81,38 +75,22 @@
             });
 
         // Membuat obyek dari data array lokal
-        // listRuang(ruangan, scene); // membuat obyek
-        for (let i = 0; i < ruangan.length; i++) {
+        // listRuang(infoSpot, scene); // membuat obyek
+        for (let i = 0; i < infoSpot.length; i++) {
                 let marker = document.createElement("a-marker");
                 marker.setAttribute("type", "barcode");
                 marker.setAttribute("value", i + 14);
-                let labelRuangan = document.createElement('a-text');
+                let labelInfoSpot = document.createElement('a-text');
                 let informasi = "";
-                informasi += ruangan[i].nama + " sedang " + ruangan[i].dipakai;
-                labelRuangan.setAttribute('value', informasi);
-                labelRuangan.setAttribute('rotation', '-90 0 0');
-                labelRuangan.setAttribute('color', 'blue');
-                labelRuangan.setAttribute('align', 'center');
-                marker.appendChild(labelRuangan);
+                informasi += infoSpot[i].nama + " adalah " + infoSpot[i].deskripsi;
+                labelInfoSpot.setAttribute('value', informasi);
+                labelInfoSpot.setAttribute('rotation', '-90 0 0');
+                labelInfoSpot.setAttribute('color', 'blue');
+                labelInfoSpot.setAttribute('align', 'center');
+                marker.appendChild(labelInfoSpot);
                 scene.appendChild(marker);
             }
 
-
-        // Menambahkan obyek dengan JS pada marker yang ada
-        var marker13 = document.querySelector("a-marker[value='13']");
-        var bola = document.createElement('a-sphere');
-        bola.setAttribute('color', 'yellow');
-        bola.setAttribute('radius', 0.5);
-        marker13.appendChild(bola);
-
-        // Membuat obyek dengan JS
-        var marker12 = document.createElement("a-marker");
-        marker12.setAttribute("type", "barcode");
-        marker12.setAttribute("value", 12);
-        var boxs = document.createElement("a-box");
-        boxs.setAttribute("color", "purple");
-        marker12.appendChild(boxs);
-        scene.appendChild(marker12);
     </script>
 </body>
 

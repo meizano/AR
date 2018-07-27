@@ -1,10 +1,10 @@
 [{
     "nama": "Baja 1",
-    "dipakai": "tidak dipakai"
+    "dipakai": " dipakai"
         }, {
     "nama": "Baja 2",
     "dipakai": "dipakai"
         }, {
     "nama": "Baja 3",
-    "dipakai": " tidak dipakai"
+    "dipakai": "  dipakai"
         }]

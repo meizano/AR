@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: Render HTML</title>
+    <title>AR.js: Render HTML sederhana</title>
     <script src="./library/aframe.min.js"></script>
     <script src="./library/aframe-ar.js"></script>
     <script src="./library/aframe-html-shader.min.js"></script>
@@ -153,7 +153,9 @@
 
 
         </a-anchor>
-        <a-camera-static/>
+        <a-camera-static>
+            <a-marker type="barcode" value=13></a-marker>
+        </a-camera-static>
     </a-scene>
 </body>
 </html>
