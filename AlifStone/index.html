@@ -23,20 +23,20 @@
     </a-scene>
     <script>
         // Fungsi membuat obyek tulisan pada a-frame
-        function listRuang(ruang, scenel) {
-            for (let i = 0; i < ruang.length; i++) {
+        function listSpot(infoSpot, scenel) {
+            for (let i = 0; i < infoSpot.length; i++) {
                 let marker = document.createElement("a-marker");
                 marker.setAttribute("type", "barcode");
-                marker.setAttribute("value", i + 9);
-                let labelRuangan = document.createElement('a-text');
+                marker.setAttribute("value", i + 14);
+                let labelInfoSpot = document.createElement('a-text');
                 let informasi = "";
-                informasi += ruang[i].nama + " sedang " + ruang[i].dipakai;
-                labelRuangan.setAttribute('value', informasi);
-                labelRuangan.setAttribute('rotation', '-90 0 0');
-                labelRuangan.setAttribute('color', 'green');
-                labelRuangan.setAttribute('align', 'center');
-                marker.appendChild(labelRuangan);
-                scenel.appendChild(marker);
+                informasi += infoSpot[i].nama + " adalah " + infoSpot[i].deskripsi;
+                labelInfoSpot.setAttribute('value', informasi);
+                labelInfoSpot.setAttribute('rotation', '-90 0 0');
+                labelInfoSpot.setAttribute('color', 'blue');
+                labelInfoSpot.setAttribute('align', 'center');
+                marker.appendChild(labelInfoSpot);
+                scene.appendChild(marker);
             }
         }
 
@@ -67,7 +67,7 @@
             .then((resp) => resp.json())
             .then(function(data) {
                 infoSpotJSON = data; // isi nilai data dengan yang dari server
-                listRuang(infoSpotJSON, scene); // membuat obyek
+                listSpot(infoSpotJSON, scene); // membuat obyek
 
             })
             .catch(function(error) {
