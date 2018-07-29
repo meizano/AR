@@ -1,7 +1,5 @@
 [{
             "nama": "Alif Stone Park",
-            "deskripsi": "Alif Stone Park adalah tempat wisata batu"
-        }, {
-            "nama": "Asking Stone",
-            "deskripsi": "Batu bertanya"
+            "deskripsi": "Alif Stone Park adalah tempat wisata batu",
+            "gambar": "./image/AlifStone-2780x390.jpg"
         }]
