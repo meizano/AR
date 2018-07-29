@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: Dynamic Content</title>
+    <title>Alif Stone Park AR</title>
     <script src="./library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="./library/aframe-ar.js"></script>
@@ -16,18 +16,15 @@
     <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
-        <a-marker type="barcode" value=13>
-        </a-marker>
-        <a-marker type="hiro">
-        </a-marker>
     </a-scene>
     <script>
         // Fungsi membuat obyek tulisan pada a-frame
         function listSpot(infoSpot, scenel) {
+            console.log('listSpot')
             for (let i = 0; i < infoSpot.length; i++) {
                 let marker = document.createElement("a-marker");
                 marker.setAttribute("type", "barcode");
-                marker.setAttribute("value", i + 14);
+                marker.setAttribute("value", i);
                 let labelInfoSpot = document.createElement('a-text');
                 let informasi = "";
                 informasi += infoSpot[i].nama + " adalah " + infoSpot[i].deskripsi;
@@ -40,58 +37,20 @@
             }
         }
 
-        // Variabel penampung nilai dari server
-        var ruanganJSON = {};
-
-        // Membuat data array lokal
-        var infoSpot = [{
-            "nama": "Alif Stone Park",
-            "deskripsi": "Alif Stone Park adalah tempat wisata batu"
-        }, {
-            "nama": "Asking Stone",
-            "deskripsi": "Batu bertanya"
-        }]
-
-        // Isi nilai sementara dengan data yang ada
-        infoSpotJSON = infoSpot;
-
         // mengakses DOM scene
         scene = document.querySelector("a-scene");
-
-        //barcodeMarker.setAttribute('type', 'barcode');
-        //barcodeMarker.setAttribute('value', '11');
 
         // Mengambil data JSON dari server
         var url = './dispatcher/data.json'; // URL dari data JSON
         fetch(url)
             .then((resp) => resp.json())
-            .then(function(data) {
-                infoSpotJSON = data; // isi nilai data dengan yang dari server
+            .then(function(infoSpotJSON) {
+                console.log(infoSpotJSON);
                 listSpot(infoSpotJSON, scene); // membuat obyek
-
             })
             .catch(function(error) {
                 console.log(JSON.stringify(error));
             });
-
-        // Membuat obyek dari data array lokal
-        // listRuang(infoSpot, scene); // membuat obyek
-        for (let i = 0; i < infoSpot.length; i++) {
-                let marker = document.createElement("a-marker");
-                marker.setAttribute("type", "barcode");
-                marker.setAttribute("value", i + 14);
-                let labelInfoSpot = document.createElement('a-text');
-                let informasi = "";
-                informasi += infoSpot[i].nama + " adalah " + infoSpot[i].deskripsi;
-                labelInfoSpot.setAttribute('value', informasi);
-                labelInfoSpot.setAttribute('rotation', '-90 0 0');
-                labelInfoSpot.setAttribute('color', 'blue');
-                labelInfoSpot.setAttribute('align', 'center');
-                marker.appendChild(labelInfoSpot);
-                scene.appendChild(marker);
-            }
-
     </script>
 </body>
-
 </html>
