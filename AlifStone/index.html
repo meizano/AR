@@ -29,12 +29,10 @@
                 let judulInfoSpot = document.createElement('a-text');
                 let textInfoSpot = document.createElement('a-text');
                 let gambarInfoSpot = document.createElement('a-image');
-                let informasi = "";
-                informasi += infoSpot[i].nama + " adalah " + infoSpot[i].deskripsi;
                 judulInfoSpot.setAttribute('value', infoSpot[i].nama);
                 judulInfoSpot.setAttribute('align', 'center');
                 judulInfoSpot.setAttribute('position', '0 2 1');
-                textInfoSpot.setAttribute('value', informasi);
+                textInfoSpot.setAttribute('value', infoSpot[i].deskripsi);
                 textInfoSpot.setAttribute('width', '3');
                 textInfoSpot.setAttribute('height', '6');
                 textInfoSpot.setAttribute('position', '-1.5 1 1');
