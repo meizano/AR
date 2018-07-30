@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>Alif Stone Park AR</title>
+    <title>Taman Kupu-Kupu Gita Persada AR</title>
     <script src="./library/aframe.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="./library/aframe-ar.js"></script>
@@ -21,7 +21,6 @@
     <script>
         // Fungsi membuat obyek tulisan pada a-frame
         function listSpot(infoSpot, scenel) {
-            console.log("listSpot");
             for (let i = 0; i < infoSpot.length; i++) {
                 let marker = document.createElement("a-marker");
                 marker.setAttribute("type", "barcode");
@@ -63,7 +62,6 @@
         fetch(url)
             .then((resp) => resp.json())
             .then(function(infoSpotJSON) {
-            console.log("JSON");
                 listSpot(infoSpotJSON, scene); // membuat obyek
             })
             .catch(function(error) {
