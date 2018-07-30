@@ -10,14 +10,51 @@
     <script src="./library/aframe-ar.js"></script>
     <!--HTML Renderer Library -->
     <script src="./library/aframe-html-shader.min.js"></script>
+    <style type="text/css">
+        .target {
+            width: 512px;
+            height: 512px;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1em;
+        }
+
+        /* Hide the HTML using z-index. */
+
+        /* Can't use display: none because that would hide the HTML in the rendered material. */
+
+        .htmlTarget.hide {
+            z-index: -10;
+        }
+
+        .htmlTarget {
+            position: absolute;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+        }
+
+    </style>
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-    <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+    <a-scene vr-mode-ui="enabled: false" embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+
+        <!-- HTML to render as a material. -->
+        <div id="htmlTarget" class="hide">
+            <div id="target">
+                <h1>HELLO<span>★</span></h1>
+                <span id="pre">A</span>
+            </div>
+        </div>
+
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
-    </a-scene><a-image src="#my-image" width="16" height="9"  position="0 0 -8"></a-image>
+    </a-scene>
     <script>
         // Fungsi membuat obyek tulisan pada a-frame
         function listSpot(infoSpot, scenel) {
@@ -26,26 +63,26 @@
                 marker.setAttribute("type", "barcode");
                 marker.setAttribute("value", i);
                 let labelInfoSpot = document.createElement('a-plane');
-                let judulInfoSpot = document.createElement('a-text');
-                let textInfoSpot = document.createElement('a-text');
-                let gambarInfoSpot = document.createElement('a-image');
-                judulInfoSpot.setAttribute('value', infoSpot[i].nama);
-                judulInfoSpot.setAttribute('align', 'center');
-                judulInfoSpot.setAttribute('position', '0 2 1');
-                textInfoSpot.setAttribute('value', infoSpot[i].deskripsi);
-                textInfoSpot.setAttribute('width', '3');
-                textInfoSpot.setAttribute('height', '6');
-                textInfoSpot.setAttribute('position', '-1.5 1 1');
-                gambarInfoSpot.setAttribute('src', infoSpot[i].gambar);
-                gambarInfoSpot.setAttribute('align', 'center');
-                gambarInfoSpot.setAttribute('position', '0 -1 1');
-                gambarInfoSpot.setAttribute('width', '3.60');
-                gambarInfoSpot.setAttribute('height', '2.40');
                 labelInfoSpot.setAttribute('width', '6');
                 labelInfoSpot.setAttribute('height', '6');
                 labelInfoSpot.setAttribute('rotation', '-90 0 0');
                 labelInfoSpot.setAttribute('color', 'black');
-                labelInfoSpot.setAttribute('material', 'opacity: 0.5');
+                labelInfoSpot.setAttribute('material', 'shader: html; target: .target; transparent: true; ratio: width; fps: 1.5');
+
+                let judulInfoSpot = document.createElement('h1');
+                let textInfoSpot = document.createElement('p');
+                let gambarInfoSpot = document.createElement('img');
+
+                judulInfoSpot.innerHTML += infoSpot[i].nama;
+                judulInfoSpot.setAttribute('align', 'center');
+
+                textInfoSpot.innerHTML += infoSpot[i].deskripsi;
+
+                gambarInfoSpot.setAttribute('src', infoSpot[i].gambar);
+                gambarInfoSpot.setAttribute('width', '3.60');
+                gambarInfoSpot.setAttribute('height', '2.40');
+
+
                 labelInfoSpot.appendChild(judulInfoSpot);
                 labelInfoSpot.appendChild(textInfoSpot);
                 labelInfoSpot.appendChild(gambarInfoSpot);
@@ -67,6 +104,8 @@
             .catch(function(error) {
                 console.log(JSON.stringify(error));
             });
+
     </script>
 </body>
+
 </html>
