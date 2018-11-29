@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
     <title>AR.js: Multiple Marker</title>
-    <script src="./library/aframe-master.js"></script>
+    <script src="./library/aframe-master.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="./library/aframe-ar.min.js"></script>
-    <!-- include text geometry -->
-    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
@@ -146,8 +145,10 @@
                     <a-torus-knot radius='0.06' radius-tubular='0.05' position="-3.5 -2 0" color="blue">
                         <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                     </a-torus-knot>
-                    <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;" material="shader: flat; color: blue" align="center"></a-entity>
-                    <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1" material="shader: flat; color: blue; transparent: true; opacity: 0.2" align="center"></a-entity>
+                    <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
+                        material="shader: flat; color: blue" align="center"></a-entity>
+                    <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
+                        material="shader: flat; color: blue; transparent: true; opacity: 0.2" align="center"></a-entity>
                 </a-plane>
             </a-plane>
         </a-marker>
@@ -174,15 +175,15 @@
         });
 
         var ms = document.querySelectorAll("a-marker");
-        for(let i = 0; i < ms.length; i++) {
-        ms[i].addEventListener("markerFound", (e) => {
-            console.log("found marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
-        });
+        for (let i = 0; i < ms.length; i++) {
+            ms[i].addEventListener("markerFound", (e) => {
+                console.log("found marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
+            });
 
-        ms[i].addEventListener("markerLost", (e) => {
-            console.log("lost marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
-        });
-    }
+            ms[i].addEventListener("markerLost", (e) => {
+                console.log("lost marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
+            });
+        }
     </script>
 </body>
 

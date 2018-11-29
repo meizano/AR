@@ -5,21 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
     <title>AR.js: Dynamic Content</title>
-    <script src="./library/aframe.min.js"></script>
-    <!-- include aframe-ar.js -->
-    <script src="./library/aframe-ar.js"></script>
+    <script src="./library/aframe-master.min.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
 
 </head>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-    <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
-        <a-marker type="barcode" value=13>
-        </a-marker>
-        <a-marker type="hiro">
-        </a-marker>
     </a-scene>
     <script>
         // Fungsi membuat obyek tulisan pada a-frame
@@ -27,7 +22,7 @@
             for (let i = 0; i < ruang.length; i++) {
                 let marker = document.createElement("a-marker");
                 marker.setAttribute("type", "barcode");
-                marker.setAttribute("value", i + 9);
+                marker.setAttribute("value", i + 1);
                 let labelRuangan = document.createElement('a-text');
                 let informasi = "";
                 informasi += ruang[i].nama + " sedang " + ruang[i].dipakai;
@@ -71,31 +66,31 @@
         var url = './dispatcher/data.json'; // URL dari data JSON
         fetch(url)
             .then((resp) => resp.json())
-            .then(function(data) {
+            .then(function (data) {
                 ruanganJSON = data; // isi nilai data dengan yang dari server
                 listRuang(ruanganJSON, scene); // membuat obyek
 
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log(JSON.stringify(error));
             });
 
         // Membuat obyek dari data array lokal
         // listRuang(ruangan, scene); // membuat obyek
         for (let i = 0; i < ruangan.length; i++) {
-                let marker = document.createElement("a-marker");
-                marker.setAttribute("type", "barcode");
-                marker.setAttribute("value", i + 14);
-                let labelRuangan = document.createElement('a-text');
-                let informasi = "";
-                informasi += ruangan[i].nama + " sedang " + ruangan[i].dipakai;
-                labelRuangan.setAttribute('value', informasi);
-                labelRuangan.setAttribute('rotation', '-90 0 0');
-                labelRuangan.setAttribute('color', 'blue');
-                labelRuangan.setAttribute('align', 'center');
-                marker.appendChild(labelRuangan);
-                scene.appendChild(marker);
-            }
+            let marker = document.createElement("a-marker");
+            marker.setAttribute("type", "barcode");
+            marker.setAttribute("value", i + 1);
+            let labelRuangan = document.createElement('a-text');
+            let informasi = "";
+            informasi += ruangan[i].nama + " sedang " + ruangan[i].dipakai;
+            labelRuangan.setAttribute('value', informasi);
+            labelRuangan.setAttribute('rotation', '-90 0 0');
+            labelRuangan.setAttribute('color', 'blue');
+            labelRuangan.setAttribute('align', 'center');
+            marker.appendChild(labelRuangan);
+            scene.appendChild(marker);
+        }
 
 
         // Menambahkan obyek dengan JS pada marker yang ada
@@ -113,6 +108,18 @@
         boxs.setAttribute("color", "purple");
         marker12.appendChild(boxs);
         scene.appendChild(marker12);
+
+        // Memeriksa hasil deteksi marker
+        var ms = document.querySelectorAll("a-marker");
+        for (let i = 0; i < ms.length; i++) {
+            ms[i].addEventListener("markerFound", (e) => {
+                console.log("found marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
+            });
+
+            ms[i].addEventListener("markerLost", (e) => {
+                console.log("lost marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
+            });
+        }
     </script>
 </body>
 
