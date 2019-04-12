@@ -47,7 +47,9 @@
             </a-entity>
         </a-entity>
 
-        <a-entity position="0 3 0" class="clickable" mixin="cube yellow" rotation="0 45 0" scale=".5 .5 .5"></a-entity>
+        <a-entity position="0 3 0" class="clickable" mixin="cube yellow" rotation="0 45 0" scale=".5 .5 .5">
+            <a-animation begin="click" attribute="scale" to="2 2 2" easing="linear" dur="2000" fill="backwards"></a-animation>
+        </a-entity>
     </a-scene>
 
 </body>
