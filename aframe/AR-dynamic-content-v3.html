@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>AR.js: Dynamic Content</title>
+    <script src="./library/aframe-master.min.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
+
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+        // Fungsi membuat obyek tulisan pada a-frame
+        function listRuang(ruang, scenel) {
+            for (let i = 0; i < ruang.length; i++) {
+                let marker = document.createElement("a-marker");
+                marker.setAttribute("type", "barcode");
+                marker.setAttribute("value", i + 1);
+                let labelRuangan = document.createElement('a-text');
+                let informasi = "";
+                informasi += ruang[i].nama + " sedang " + ruang[i].dipakai;
+                labelRuangan.setAttribute('value', informasi);
+                labelRuangan.setAttribute('rotation', '-90 0 0');
+                labelRuangan.setAttribute('position', '0 0 0');
+                labelRuangan.setAttribute('color', 'green');
+                labelRuangan.setAttribute('align', 'center');
+                marker.appendChild(labelRuangan);
+                scenel.appendChild(marker);
+            }
+        }
+
+        // Variabel penampung nilai dari server
+        var ruanganJSON = {};
+
+       // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+
+        //barcodeMarker.setAttribute('type', 'barcode');
+        //barcodeMarker.setAttribute('value', '11');
+
+        // Mengambil data JSON dari server
+        var url = './dispatcher/data.json'; // URL dari data JSON
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                ruanganJSON = data; // isi nilai data dengan yang dari server
+                listRuang(ruanganJSON, scene); // membuat obyek
+
+            })
+            .catch(function (error) {
+                console.log(JSON.stringify(error));
+            });
+
+    </script>
+</body>
+
+</html>
