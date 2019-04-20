@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>AR.js: Disable VR UI</title>
+    <script src="./library/aframe.min.js"></script>
+    <script src="./library/aframe-ar.custom.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <!-- Disable VR UI in A-Frame and debug UI in AR.js -->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
+        <a-anchor hit-testing-enabled='true'>
+            <a-plane width="2" height="1" position='0 0 0' rotation="-90 0 0" color="blue" material='opacity: 0.5;'>
+                <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
+            </a-plane>
+        </a-anchor>
+        <a-camera-static/>
+    </a-scene>
+</body>
+</html>

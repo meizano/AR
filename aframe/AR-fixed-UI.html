@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>AR.js: Fixed UI</title>
+    <script src="./library/aframe-master.min.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
+    <style>
+        #UI {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;     
+        }
+    </style>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+        <!-- add a barcode marker value 1 -->
+        <a-marker type="barcode" value="1">
+            <a-text 
+                value="Marker Barcode 1" 
+                rotation="-90 0 0" 
+                color="magenta" 
+                align="center">
+            </a-text>
+        </a-marker>
+    </a-scene>
+    <div id="UI">You can put UI as fixed component</div>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: Multiple Marker</title>
+    <title>AR.js: Marker Event Detection</title>
     <script src="./library/aframe-master.min.js"></script>
     <!-- include aframe-ar.js -->
     <script src="./library/aframe-ar.min.js"></script>
@@ -165,6 +165,7 @@
     </a-scene>
 
     <script>
+        // Detecting single marker
         var m = document.querySelector("a-marker[type='barcode'][value='1']");
         m.addEventListener("markerFound", (e) => {
             console.log("found marker " + m.getAttribute("type") + " " + m.getAttribute("value"));
@@ -174,6 +175,7 @@
             console.log("lost marker " + m.getAttribute("type") + " " + m.getAttribute("value"));
         });
 
+        // Detecting multiple marker
         var ms = document.querySelectorAll("a-marker");
         for (let i = 0; i < ms.length; i++) {
             ms[i].addEventListener("markerFound", (e) => {
