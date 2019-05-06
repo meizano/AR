@@ -1,9 +1,9 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Virtual Reality dengan A-Frame</title>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>VR: Cursor</title>
     <script src="./library/aframe.min.js"></script>
     <script>
         AFRAME.registerComponent('change-color-on-hover', {
@@ -13,16 +13,16 @@
                 }
             },
 
-            init: function() {
+            init: function () {
                 var data = this.data;
                 var el = this.el; // <a-box>
                 var defaultColor = el.getAttribute('material').color;
 
-                el.addEventListener('mouseenter', function() {
+                el.addEventListener('mouseenter', function () {
                     el.setAttribute('color', data.color);
                 });
 
-                el.addEventListener('mouseleave', function() {
+                el.addEventListener('mouseleave', function () {
                     el.setAttribute('color', defaultColor);
                 });
             }

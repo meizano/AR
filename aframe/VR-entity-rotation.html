@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <title>VR: A-Frame Primitives</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>VR: Entity Rotation</title>
     <script src="./library/aframe.min.js"></script>
 </head>
 
 <body>
     <a-scene>
         <a-box position="0 2.6 -4" rotation="0 0 0" color="#FFC300">
-            <a-text value="Tanpa rotasi" position="0 0 0.5" color="#111" align="center"></a-text>
+            <a-text value="Without rotation" position="0 0 0.5" color="#111" align="center"></a-text>
         </a-box>
         <a-box position="-2 0.6 -4" rotation="0 0 45" color="red">
-            <a-text value="rotasi z 45" position="0 0 0.5" color="#111" align="center"></a-text>
+            <a-text value="Rotation z 45" position="0 0 0.5" color="#111" align="center"></a-text>
         </a-box>
         <a-box position="0 0.6 -4" rotation="0 45 0" color="green">
-            <a-text value="rotasi y 45" position="0 0 0.5" color="#111" align="center"></a-text>
+            <a-text value="Rotation y 45" position="0 0 0.5" color="#111" align="center"></a-text>
         </a-box>
         <a-box position="2 0.6 -4" rotation="45 0 0" color="blue">
-            <a-text value="rotasi x 45" position="0 0 0.5" color="#111" align="center"></a-text>
+            <a-text value="Rotation x 45" position="0 0 0.5" color="#111" align="center"></a-text>
         </a-box>
-        <a-plane position="0 0 -3" rotation="-90 0 0" width="4" height="4" color="#7BC8A4">
-            <a-text value="Hello, A-Frame!" color="#111" align="center"></a-text>
-        </a-plane>
-        
     </a-scene>
 </body>
+
 </html>

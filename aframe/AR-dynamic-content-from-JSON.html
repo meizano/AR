@@ -4,19 +4,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: Dynamic Content</title>
-    <script src="./library/aframe-master.min.js"></script>
+    <title>AR.js: Dynamic Content from JSON</title>
+    <script src="./library/aframe.min.js"></script>
     <script src="./library/aframe-ar.min.js"></script>
-
 </head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+<body style='margin : 0px; overflow: hidden;'>
 
-    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+    <a-scene embedded vr-mode-ui="enabled: false"
+        arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
     </a-scene>
     <script>
+        // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+
         // Fungsi membuat obyek tulisan pada a-frame
         function listRuang(ruang, scenel) {
             for (let i = 0; i < ruang.length; i++) {
@@ -39,12 +42,6 @@
         // Variabel penampung nilai dari server
         var ruanganJSON = {};
 
-       // mengakses DOM scene
-        scene = document.querySelector("a-scene");
-
-        //barcodeMarker.setAttribute('type', 'barcode');
-        //barcodeMarker.setAttribute('value', '11');
-
         // Mengambil data JSON dari server
         var url = './dispatcher/data.json'; // URL dari data JSON
         fetch(url)
@@ -57,7 +54,6 @@
             .catch(function (error) {
                 console.log(JSON.stringify(error));
             });
-
     </script>
 </body>
 

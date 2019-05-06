@@ -5,14 +5,13 @@
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
     <title>AR.js: Multiple Marker</title>
     <script src="./library/aframe.min.js"></script>
-    <!-- include aframe-ar.js -->
-    <script src="./library/aframe-ar.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
     <!-- include text geometry -->
     <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
 </head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-    <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;'>
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;'>
 
         <!-- add a simple camera -->
         <a-entity camera></a-entity>

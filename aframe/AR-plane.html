@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: plane</title>
+    <title>AR.js: a-plane</title>
     <script src="./library/aframe.min.js"></script>
-    <script src="./library/aframe-ar.custom.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs>
         <a-anchor hit-testing-enabled='true'>
             <a-plane width="2" height="1" position='0 0 0' rotation="-90 0 0" color="blue" material='opacity: 0.5;'>
                 <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>

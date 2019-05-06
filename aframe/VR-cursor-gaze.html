@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A-Frame: Cursor Gaze</title>
-    <script src="./library/aframe.min.js"></script>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>VR: Cursor Gaze</title>
+    <script src="./library/aframe-v0.8.2.min"></script>
 </head>
-
+<!-- NEEDS UPDATE: As of A-Frame 0.9.0 a-animation tag no longer supported, change to attribute for entity -->
 <body>
     <a-scene>
         <a-assets>
@@ -22,7 +22,9 @@
 
         <a-entity position="0 2.2 4">
             <a-entity camera look-controls wasd-controls>
-                <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;" material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true">
+                <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;" material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true"
+                animation=""
+                >
                     <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
                     <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
                 </a-entity>

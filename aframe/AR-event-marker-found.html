@@ -5,12 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
     <title>AR.js: Marker Event Detection</title>
-    <script src="./library/aframe-master.min.js"></script>
-    <!-- include aframe-ar.js -->
+    <script src="./library/aframe.min.js"></script>
     <script src="./library/aframe-ar.min.js"></script>
 </head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+<body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
 
         <!-- add a simple camera -->
@@ -135,23 +134,6 @@
             </a-plane>
         </a-marker>
 
-        <!-- handle matrix marker -->
-        <a-marker type='barcode' value='16'>
-            <a-plane width="6" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
-                <a-plane width="3" height="3" src="#foto1" position="0 0 0.5">
-                    <a-torus-knot radius='0.06' radius-tubular='0.05' position="3.5 -2 0" color="blue">
-                        <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                    </a-torus-knot>
-                    <a-torus-knot radius='0.06' radius-tubular='0.05' position="-3.5 -2 0" color="blue">
-                        <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-                    </a-torus-knot>
-                    <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;"
-                        material="shader: flat; color: blue" align="center"></a-entity>
-                    <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1"
-                        material="shader: flat; color: blue; transparent: true; opacity: 0.2" align="center"></a-entity>
-                </a-plane>
-            </a-plane>
-        </a-marker>
 
         <!-- handle kanji marker -->
         <a-marker preset='kanji'>

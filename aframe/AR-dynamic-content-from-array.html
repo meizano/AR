@@ -4,19 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: Dynamic Content</title>
-    <script src="./library/aframe-master.min.js"></script>
+    <title>AR.js: Dynamic Content from Array</title>
+    <script src="./library/aframe.min.js"></script>
     <script src="./library/aframe-ar.min.js"></script>
-
 </head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-
-    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false"
+        arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
     </a-scene>
     <script>
+        // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+        
         // Fungsi membuat obyek tulisan pada a-frame
         function listRuang(ruang, scenel) {
             for (let i = 0; i < ruang.length; i++) {
@@ -53,27 +55,8 @@
             "dipakai": "dipakai"
         }, ]
 
-        // Isi nilai sementara dengan data yang ada
+        // Isi nilai dengan data yang ada
         ruanganJSON = ruangan;
-
-        // mengakses DOM scene
-        scene = document.querySelector("a-scene");
-
-        //barcodeMarker.setAttribute('type', 'barcode');
-        //barcodeMarker.setAttribute('value', '11');
-
-        // Mengambil data JSON dari server
-        var url = './dispatcher/data.json'; // URL dari data JSON
-        fetch(url)
-            .then((resp) => resp.json())
-            .then(function (data) {
-                ruanganJSON = data; // isi nilai data dengan yang dari server
-                listRuang(ruanganJSON, scene); // membuat obyek
-
-            })
-            .catch(function (error) {
-                console.log(JSON.stringify(error));
-            });
 
         // Membuat obyek dari data array lokal
         // listRuang(ruangan, scene); // membuat obyek
@@ -90,35 +73,6 @@
             labelRuangan.setAttribute('align', 'center');
             marker.appendChild(labelRuangan);
             scene.appendChild(marker);
-        }
-
-
-        // Menambahkan obyek dengan JS pada marker yang ada
-        var marker13 = document.querySelector("a-marker[value='13']");
-        var bola = document.createElement('a-sphere');
-        bola.setAttribute('color', 'yellow');
-        bola.setAttribute('radius', 0.5);
-        marker13.appendChild(bola);
-
-        // Membuat obyek dengan JS
-        var marker12 = document.createElement("a-marker");
-        marker12.setAttribute("type", "barcode");
-        marker12.setAttribute("value", 12);
-        var boxs = document.createElement("a-box");
-        boxs.setAttribute("color", "purple");
-        marker12.appendChild(boxs);
-        scene.appendChild(marker12);
-
-        // Memeriksa hasil deteksi marker
-        var ms = document.querySelectorAll("a-marker");
-        for (let i = 0; i < ms.length; i++) {
-            ms[i].addEventListener("markerFound", (e) => {
-                console.log("found marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
-            });
-
-            ms[i].addEventListener("markerLost", (e) => {
-                console.log("lost marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
-            });
         }
     </script>
 </body>

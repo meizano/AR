@@ -4,16 +4,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>AR.js: Dynamic Content</title>
-    <script src="./library/aframe-master.min.js"></script>
-    </head>
+    <title>AR.js: Dynamic Content from JSON with template literal</title>
+    <script src="./library/aframe.min.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
+</head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+<body style='margin : 0px; overflow: hidden;'>
 
-    <a-scene>
+    <a-scene embedded vr-mode-ui="enabled: false"
+        arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
         <!-- add a simple camera -->
-        <a-camera position="0 2 5"></a-camera>
-        <a-sphere width="2" height="2" color="cyan" opacity="0.7"></a-sphere>
+        <a-entity camera></a-entity>
     </a-scene>
     <script>
         // mengakses DOM scene
@@ -23,29 +24,30 @@
         var url = './dispatcher/data.json'; // URL dari data JSON
         fetch(url)
             .then((resp) => resp.json()) // Mengubah text json jadi obyek (pada javascript)
-            .then(function (data) { 
+            .then(function (data) {
                 listRuang(data, scene); // membuat obyek
             })
             .catch(function (error) {
                 console.log(JSON.stringify(error));
             });
-        
+
         // Fungsi membuat obyek tulisan pada a-frame
         function listRuang(ruang, scenel) {
             for (let i = 0; i < ruang.length; i++) {
-                console.log(i);
-                let marker = 
-                `<a-text 
-                    value="${ruang[i].nama} sedang ${ruang[i].dipakai}" 
-                    rotation="0 0 0" 
-                    color="green" 
-                    position="${(3 * i) - 3} ${2} ${-2}"
-                    align="center">
-                </a-text>
-                `;       
+                let marker =
+                    `<a-marker type="barcode" value="${i}">
+                    <a-text 
+                        value="${ruang[i].nama} sedang ${ruang[i].dipakai}" 
+                        rotation="-90 0 0" 
+                        color="green" 
+                        align="center">
+                    </a-text>
+                </a-marker>
+                `;
                 scenel.insertAdjacentHTML('beforeend', marker);
             }
         }
     </script>
 </body>
+
 </html>
