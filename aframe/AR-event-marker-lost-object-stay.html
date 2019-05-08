@@ -27,18 +27,25 @@
         var m = document.querySelector("a-marker");
 
         // Create object bola
-        var bola = document.createElement('a-sphere');
-        bola.setAttribute('color', 'yellow');
-        bola.setAttribute('radius', 0.5);
+        var bolam = `<a-sphere position="0 0 0" color="red" radius="0.5"></a-sphere>`;
+        var bolas = `<a-sphere position="0 0 -5" color="red" radius="0.5"></a-sphere>`;
 
         m.addEventListener("markerFound", (e) => {
-            scene.removeChild(bola);
-            m.appendChild(bola);
+            if(document.querySelector("a-sphere")) {
+            let bol = document.querySelector("a-sphere");
+            if(bol.parentNode)
+                bol.parentNode.removeChild(bol);
+            }
+            m.insertAdjacentHTML('beforeend',bolam);
         });
 
         m.addEventListener("markerLost", (e) => {
-            m.removeChild(bola);
-            scene.appendChild(bola);
+            if(document.querySelector("a-sphere")) {
+            let bol = document.querySelector("a-sphere");
+            if(bol.parentNode)
+                bol.parentNode.removeChild(bol);
+            }
+            scene.insertAdjacentHTML('beforeend',bolas);
         });
     </script>
 </body>
