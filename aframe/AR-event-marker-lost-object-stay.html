@@ -27,25 +27,23 @@
         var m = document.querySelector("a-marker");
 
         // Create object bola
-        var bolam = `<a-sphere position="0 0 0" color="red" radius="0.5"></a-sphere>`;
-        var bolas = `<a-sphere position="0 0 -5" color="red" radius="0.5"></a-sphere>`;
-
-        m.addEventListener("markerFound", (e) => {
-            if(document.querySelector("a-sphere")) {
-            let bol = document.querySelector("a-sphere");
-            if(bol.parentNode)
+        function bola(zaxis) {
+            // if bola exist, remove
+            if (document.querySelector("a-sphere")) {
+                let bol = document.querySelector("a-sphere");
                 bol.parentNode.removeChild(bol);
             }
-            m.insertAdjacentHTML('beforeend',bolam);
+            // template literal to create object, z axis for marker = 0, for scene = -5
+            var bola = `<a-sphere position="0 0 ${zaxis}" color="red" radius="0.5"></a-sphere>`;
+            return bola;
+        }
+
+        m.addEventListener("markerFound", (e) => {
+            m.insertAdjacentHTML('beforeend', bola(0));
         });
 
         m.addEventListener("markerLost", (e) => {
-            if(document.querySelector("a-sphere")) {
-            let bol = document.querySelector("a-sphere");
-            if(bol.parentNode)
-                bol.parentNode.removeChild(bol);
-            }
-            scene.insertAdjacentHTML('beforeend',bolas);
+            scene.insertAdjacentHTML('beforeend', bola(-5));
         });
     </script>
 </body>
