@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>AR.js: Marker Event Detection</title>
+    <script src="./library/aframe.min.js"></script>
+    <script src="./library/aframe-ar.min.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false"
+        arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset='hiro'></a-marker>
+    </a-scene>
+    <script>
+        // a-scene
+        var scene = document.querySelector("a-scene");
+
+        // a-marker
+        var m = document.querySelector("a-marker");
+
+        // Create object bola
+        var bola = document.createElement('a-sphere');
+        bola.setAttribute('color', 'yellow');
+        bola.setAttribute('radius', 0.5);
+
+        m.addEventListener("markerFound", (e) => {
+            scene.removeChild(bola);
+            m.appendChild(bola);
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            m.removeChild(bola);
+            scene.appendChild(bola);
+        });
+    </script>
+</body>
+
+</html>
