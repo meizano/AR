@@ -10,11 +10,11 @@
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
 
-        <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="1" color="pink" opacity="0.9">
-            <a-text value="Ini adalah sebuah bidang" color="#111" position="0 -0.6 0" align="center"></a-text>
-        </a-plane>
+        <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" src="../pattern/logo-unila-bw.png"></a-plane>
 
-        <a-marker-camera preset='custom' type='pattern' url='assets/marker/marker-datamatrix-1234567890.patt'></a-marker-camera>
+        <a-marker-camera type='pattern' url='../pattern/ar-marker-unila.patt'></a-marker-camera>
     </a-scene>
+    <a target="_blank" href="https://katharine.org/tutorials/custom-markers-ar-js/">Custom Markers with Ar.js</a>
+    <p>NOTE: The background must be 240, 240, 240. Image with a transparent or white background wont work.</p>
 </body>
 </html>
