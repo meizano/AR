@@ -1,0 +1,33 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Web Augmented Reality</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./library/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./library/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false"
+        arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+
+ 
+
+        <a-marker type='barcode' value='3' position="0 0 5">
+            <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+        </a-marker>
+
+        <a-entity camera static>
+                <a-box position='0 3 -10' rotation="0 0 0" material='color: red;'
+                animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
+        </a-entity>
+
+    </a-scene>
+</body>
+
+</html>

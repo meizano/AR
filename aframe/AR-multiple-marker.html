@@ -16,8 +16,8 @@
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
         <!-- create assets -->
-        <a-assets>
-            <a-asset-item id="EE" src="../images/EE.png"></a-asset-item>
+        <a-assets timeout='900000'>
+            <a-asset-item id="EE" src="../pattern/ar-marker-unila.png"></a-asset-item>
             <a-asset-item id="drone" src="./assets/busterDrone/busterDrone.gltf"></a-asset-item>
             <a-asset-item id="motorbike" src="./assets/motorbike/scene.gltf"></a-asset-item>
             <a-asset-item id="helmet" src="./assets/damagedHelmet/damagedHelmet.gltf"></a-asset-item>
@@ -41,6 +41,11 @@
         <!-- handle custom marker -->
         <a-marker preset='custom' type='pattern' url='./assets/marker/marker-datamatrix-1234567890.patt'>
             <a-image src="#foto1" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
+        </a-marker>
+        
+        <!-- handle custom marker -->
+        <a-marker preset='custom' type='pattern' url='./pattern-Unila-warna.patt'>
+            <a-image src="#foto2" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
         </a-marker>
 
         <!-- handle matrix marker -->
