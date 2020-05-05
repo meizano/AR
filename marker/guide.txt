@@ -1,0 +1,11 @@
+If marker can not be detected 
+solve this problem by the following steps:
+
+1. As @sloschi mentioned, change the image white part to light grey with rgb(240,240,240) and upload to online marker generate tool, then download the .patt file
+
+2. Modify the code in aframe.js following this
+
+3. Use this code in html:
+<a-marker preset='custom' type='pattern' url='your-marker.patt'>...</a-marker>
+
+then it will work.

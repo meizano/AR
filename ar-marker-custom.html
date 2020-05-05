@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Preset Marker</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
+
+        <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" src="./marker/unila-bw/logo-unila-bw.png"></a-plane>
+
+        <a-marker-camera type='pattern' url='./marker/unila-bw/ar-marker-unila.patt'></a-marker-camera>
+    </a-scene>
+    <ul>
+        <li><a target="_blank" href="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html">Custom Markers Generator</a></li>
+        <li>NOTE: The background must be 240, 240, 240. Image with a transparent or white background wont work.</li>
+        <li>In Chromium based browser, entity stay on screen in last position when marker not detected</li>
+        <li><a target="_blank" href="https://katharine.org/tutorials/custom-markers-ar-js/">Custom Markers with Ar.js (OBSOLETE)</a></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Web Augmented Reality with AR.js</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+
+    <style>
+        /* Mengatur posisi elemen pada halaman */
+        
+        #UI {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+        }
+        /* Styling */
+        
+        #UI {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            font-weight: 200;
+            text-align: center;
+            color: orange;
+            background-color: blue;
+            display: block;
+        }
+    </style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
+    <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+
+        <!-- camera -->
+        <a-entity camera static>
+        </a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" material="color: orange; opacity: 0.5;">
+                <a-torus-knot scale=".2 .2 .2" color="white" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-torus-knot>
+                <a-text value="Marker Hiro" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+            </a-box>
+        </a-marker>
+
+    </a-scene>
+    <!-- UI Element outside a-scene -->
+    <div id="UI">Arahkan kamera ke marker hiro. "Hiro pattern with border.pdf" di direktori pattern dapat dicetak sebagai marker.
+    </div>
+</body>
+
+</html>

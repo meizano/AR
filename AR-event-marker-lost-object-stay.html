@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Marker Occlusion</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro"></a-marker>
+
+        <a-entity id="penampung"></a-entity>
+    </a-scene>
+    <script>
+        // a-marker
+        const m = document.querySelector("a-marker");
+
+        // a-entity
+        const penampung = document.querySelector("a-entity#penampung");
+
+        // Create object kotak
+        function buatObyek(obj3d) {
+            let posx = obj3d.position.x;
+            let posy = obj3d.position.y + 0.5;
+            let posz = obj3d.position.z;
+
+            let rotx = THREE.Math.radToDeg(obj3d.rotation.x);
+            let roty = THREE.Math.radToDeg(obj3d.rotation.y);
+            let rotz = THREE.Math.radToDeg(obj3d.rotation.z);
+
+            // template literal to create object
+            var obyek = `<a-box position="${posx} ${posy} ${posz}+.5" rotation="${rotx} ${roty} ${rotz}" color="red" material="opacity: 0.5; color: red;"></a-box>`;
+            return obyek;
+        }
+
+        var object3Dinit = {
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        };
+
+        var object3D;
+
+        m.addEventListener("markerFound", (e) => {
+            console.log(e.target.object3D.position);
+            // console.log(e.target.object3D.rotation);
+            object3D = object3Dinit;
+            m.insertAdjacentHTML("beforeend", buatObyek(object3Dinit));
+            object3D = e.target.object3D;
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            console.log(e.target.object3D.position);
+            // console.log(e.target.object3D.rotation);
+            penampung.insertAdjacentHTML("beforeend", buatObyek(object3D));
+        });
+    </script>
+</body>
+
+</html>

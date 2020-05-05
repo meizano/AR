@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: a-plane</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs>
+        <a-anchor hit-testing-enabled='true'>
+            <a-plane width="2" height="1" position='0 0 0' rotation="-90 0 0" color="blue" material='opacity: 0.5;'>
+                <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
+            </a-plane>
+        </a-anchor>
+        <a-camera-static/>
+    </a-scene>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: UI using A-Frame</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
+
+        <!-- add a simple camera -->
+        <a-entity camera static></a-entity>
+
+        <!-- add a hiro marker -->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" material="color: green; opacity: 0.5;">
+                <a-text value="Marker Hiro" position="0 0.55 0" rotation="-90 0 0" color="magenta" align="center">
+                </a-text>
+            </a-box>
+        </a-marker>
+
+        <!-- UI Element inside a-scene -->
+        <!-- object relative to camera -->
+        <!-- z position must be minus value (e.g. -1) to placed in front of camera-->
+        <a-entity position="0 .25 -1" scale=".1 .1 .1">
+            <a-box rotation="45 45 45" position="-1.5 0 0" scale=".3 .3 .3" color="blue" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-box>
+            <a-text value="Gunakan marker hiro" color="orange" align="center"></a-text>
+            <a-box rotation="45 45 45" position="1.5 0 0" scale=".3 .3 .3" color="blue" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-box>
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>

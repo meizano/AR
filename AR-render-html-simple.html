@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Render HTML sederhana</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <script src="./library/aframe-html-shader.min.js"></script>
+    <style type="text/css">
+        #target {
+            width: 512px;
+            height: 512px;
+            position: absolute;
+            background: rgba(200, 55, 5, 0.7);
+            padding: 1em;
+        }
+        /* Hide the HTML using z-index. */
+        /* Can't use display: none because that would hide the HTML in the rendered material. */
+        
+        #htmlTarget.hide {
+            z-index: -10;
+        }
+        
+        #htmlTarget {
+            position: absolute;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs update-html>
+        <a-anchor>
+            <!-- Letters. -->
+            <a-entity id="pageEntity" geometry="primitive: plane; width: 3; height: 3" rotation="-90 0 0" position="0 0.1 0" material="shader: html; target: #target; transparent: true; ratio: width; fps: 1.5"></a-entity>
+
+            <!-- HTML to render as a material. -->
+            <div id="htmlTarget" class="hide">
+                <div id="target">
+                    <h1>HELLO<span>★</span></h1>
+                    <span id="pre">A</span>
+                </div>
+            </div>
+
+        </a-anchor>
+        <a-camera-static />
+    </a-scene>
+</body>
+
+</html>

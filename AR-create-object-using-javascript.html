@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Create Object with JavaScript</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+        // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+
+        // Menambahkan obyek dengan JS pada marker yang ada
+        var marker13 = document.querySelector("a-marker[value='13']");
+        var bola = document.createElement('a-sphere');
+        bola.setAttribute('color', 'yellow');
+        bola.setAttribute('radius', 0.5);
+        marker13.appendChild(bola);
+
+        // Membuat obyek dengan JS
+        var marker12 = document.createElement("a-marker");
+        marker12.setAttribute("type", "barcode");
+        marker12.setAttribute("value", 12);
+        var boxs = document.createElement("a-box");
+        boxs.setAttribute("color", "purple");
+        marker12.appendChild(boxs);
+        scene.appendChild(marker12);
+
+        // Memeriksa hasil deteksi marker
+        var ms = document.querySelectorAll("a-marker");
+        for (let i = 0; i < ms.length; i++) {
+            ms[i].addEventListener("markerFound", (e) => {
+                console.log("found marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
+            });
+
+            ms[i].addEventListener("markerLost", (e) => {
+                console.log("lost marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute("value"));
+            });
+        }
+    </script>
+</body>
+
+</html>

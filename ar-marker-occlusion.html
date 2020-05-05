@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Marker Occlusion</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro">
+            <a-sphere position="0 0 0" color="red" material="opacity: 0.5; color: blue;" radius="0.5"></a-sphere>
+        </a-marker>
+
+        <a-box position="0 0 0" color="red" material="opacity: 0.5; color: red;"></a-box>
+
+    </a-scene>
+    <script>
+        // a-marker
+        const m = document.querySelector("a-marker");
+
+        // a-box
+        var box = document.querySelector("a-box");
+
+        var object3D;
+
+        function updateTransformation(obj3d, ent) {
+            console.log(obj3d.position);
+            console.log(obj3d.quaternion);
+            object3D = obj3d;
+            ent.object3D.setRotationFromQuaternion(object3D.quaternion);
+            ent.object3D.position.set(object3D.position.x, object3D.position.y, object3D.position.z);
+        }
+
+        var object3Dinit = {
+            "position": {
+                "x": -2,
+                "y": -2,
+                "z": -2
+            },
+            "quaternion": {
+                "_x": 0,
+                "_y": 0,
+                "_z": 0,
+                "_w": 1
+            }
+        };
+
+        m.addEventListener("markerFound", (e) => {
+            setTimeout(updateTransformation(e.target.object3D, box), 2);
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            setTimeout(updateTransformation(e.target.object3D, box), 2);
+        });
+    </script>
+</body>
+
+</html>

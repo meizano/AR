@@ -1,0 +1,40 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Barcode Marker 3x3</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
+    <!-- detectionMode: mono_and_matrix adalah untuk memindai marker matriks | matrixCodeType: 3x3 adalah dimensi matriks yang dipindai -->
+    <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" material="color: green;"></a-box>
+        </a-marker>
+
+        <!-- handle barcode marker 3 -->
+        <a-marker type="barcode" value="3" position="0 0 0">
+            <a-box position="0 0.5 0" material="color: yellow;"></a-box>
+        </a-marker>
+
+        <!-- camera -->
+        <a-entity camera static>
+            <!-- object relative to camera -->
+            <a-box position="0 3 -10" rotation="0 0 0" material="color: red;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-box>
+        </a-entity>
+
+    </a-scene>
+</body>
+
+</html>

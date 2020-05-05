@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Fixed UI</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <style>
+        #UI {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+        }
+    </style>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- add a barcode marker value 1 -->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" material="color: green; opacity: 0.5;">
+                <a-text value="Marker Hiro" rotation="-90 0 0" color="magenta" align="center"></a-text>
+            </a-box>
+        </a-marker>
+
+        <!-- UI Element inside a-scene -->
+        <!-- z position must be minus value (e.g. -1) to placed in front of camera-->
+        <a-box position="0 0 -1" scale="5 5 5" rotation="45 45 45" color="blue" depth="0.2" height="0.4" width="0.6" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;">
+        </a-box>
+        <a-text value="Gunakan marker hiro" position="0 0 6" color="yellow" align="center"></a-text>
+
+
+    </a-scene>
+    <!-- UI Element outside a-scene -->
+    <div id="UI">You can put UI as fixed component</div>
+</body>
+
+</html>
