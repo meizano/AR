@@ -57,7 +57,17 @@
 
         var object3D;
 
+        m.addEventListener("getMarker", (e) => {
+            console.log("getMarker");
+            console.log(e.target.object3D.position);
+            // console.log(e.target.object3D.rotation);
+            object3D = object3Dinit;
+            m.insertAdjacentHTML("beforeend", buatObyek(object3Dinit));
+            object3D = e.target.object3D;
+        });
+
         m.addEventListener("markerFound", (e) => {
+            console.log("markerFound");
             console.log(e.target.object3D.position);
             // console.log(e.target.object3D.rotation);
             object3D = object3Dinit;
@@ -66,6 +76,7 @@
         });
 
         m.addEventListener("markerLost", (e) => {
+            console.log("markerLost");
             console.log(e.target.object3D.position);
             // console.log(e.target.object3D.rotation);
             penampung.insertAdjacentHTML("beforeend", buatObyek(object3D));
