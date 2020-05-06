@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR.js: Load Model GLTF melalui A-Assets</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs='debugUIEnabled: false;'>
+        <a-assets>
+            <a-asset-item id="hidangan" src="./assets/hidangan/buka-puasa-20200504.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-anchor hit-testing-enabled='true'>
+            <a-entity gltf-model="#hidangan" rotation="0 0 0" position='0 0 0' scale="1 1 1"></a-entity>
+        </a-anchor>
+
+        <a-camera-static/>
+    </a-scene>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>VR: GLTF Model</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="hidangan" src="./assets/hidangan/buka-puasa-20200504.gltf"></a-asset-item>
+        </a-assets>
+
+        <!-- 360-degree image. -->
+        <a-sky radius="30" material="" geometry="" scale="" color="lightblue"></a-sky>
+        <a-box position="0.258 0.52 -0.5" rotation="0 0 0" scale="5.927 1.02 2.32" material="color:gray"></a-box>
+        <a-entity gltf-model="#hidangan" position="0 0.5 -0.5" rotation="0 180 0" scale="0.5 0.5 0.5"></a-entity>
+    </a-scene>
+</body>
+
+</html>
