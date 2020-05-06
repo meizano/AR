@@ -5,12 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <!-- Correcting zooming issue -->
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Web Augmented Reality with AR.js</title>
     <!-- Library untuk VR membangun 3D -->
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
-
+    <title>Web Augmented Reality with AR.js</title>
     <style>
         /* Mengatur posisi elemen pada halaman */
         
@@ -38,10 +37,8 @@
     <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
-
         <!-- camera -->
-        <a-entity camera static>
-        </a-entity>
+        <a-entity camera static></a-entity>
 
         <!-- handle hiro marker -->
         <a-marker preset="hiro">

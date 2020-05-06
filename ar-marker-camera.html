@@ -9,20 +9,22 @@
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
-    <title>AR.js: Load Model GLTF dengan Atribut pada A-Entity</title>
+    <title>WebAR: Marker Camera</title>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
     <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
-        <!-- camera -->
-        <a-entity camera static></a-entity>
-
-        <a-anchor hit-testing-enabled='true'>
-            <a-entity gltf-model="./assets/cookie5/cookie5.gltf" rotation="0 0 0" position='0 0 0' scale="1 1 1"></a-entity>
-        </a-anchor>
+        <!-- a-marker-camera membuat obyek tetap ada walau marker tidak terlihat -->
+        <a-marker-camera preset="hiro">
+            <a-box position="0 0.5 0" material="color: orange; opacity: 0.5;">
+                <a-torus-knot scale=".2 .2 .2" color="white" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-torus-knot>
+                <a-text value="Marker Hiro" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+            </a-box>
+        </a-marker-camera>
     </a-scene>
+    <!-- referensi https://github.com/jeromeetienne/AR.js/issues/159 -->
 </body>
 
 </html>
