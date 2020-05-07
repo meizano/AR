@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>WebAR: A-Frame Primitives</title>
+    <script src="./js/aframe/fonts/Roboto-msdf.json"></script>
+    <script src="./js/aframe/fonts/Aileron-Semibold.fnt"></script>
+    <script src="./js/aframe/fonts/DejaVu-sdf.fnt"></script>
+    <script src="./js/aframe/fonts/Exo2Bold.fnt"></script>
+    <script src="./js/aframe/fonts/Exo2SemiBold.fnt"></script>
+    <script src="./js/aframe/fonts/KelsonSans.fnt"></script>
+    <script src="./js/aframe/fonts/Monoid.fnt"></script>
+    <script src="./js/aframe/fonts/SourceCodePro.fnt"></script>
+    <script src="./js/aframe/fonts/mozillavr.fnt"></script>
+    <script src="./js/aframe/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-text value="This is a-text" color="yellow" position="0 1.5 -2" align="center"></a-text>
+        <a-plane position="0 0 -3" rotation="-90 0 0" width="4" height="4" color="#7BC8A4">
+            <a-text value="This is a-plane" color="#111" align="center" position="0 -1.5 0"></a-text>
+        </a-plane>
+        <a-triangle position="-1.5 1 -3" rotation="-45 0 0" radius="0.5" color="grey">
+            <a-text value="This is a-triangle" color="#111" align="center"></a-text>
+        </a-triangle>
+        <a-circle position="1.5 1 -3" rotation="-45 0 0" radius="0.5" color="purple">
+            <a-text value="This is a-circle" color="#111" align="center"></a-text>
+        </a-circle>
+        <a-box position="0 0.6 -4" rotation="0 45 0" color="#FFC300">
+            <a-text value="This is a-box" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-box>
+        <a-sphere position="0 3.6 -4" radius="0.75" color="silver">
+            <a-text value="This is a-sphere" color="#111" align="center" position="0 -0.2 1.25"></a-text>
+        </a-sphere>
+        <a-cylinder position="0 1.75 -4" radius="0.5" height="1.5" color="green">
+            <a-text value="This is a-cylinder" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-cylinder>
+        <a-octahedron position="-3 4 -4" radius="0.5" height="2" color="orange">
+            <a-text value="This is a-octahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-octahedron>
+        <a-icosahedron position="3 4 -4" radius="0.5" height="2" color="blue">
+            <a-text value="This is a-icosahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-icosahedron>
+        <a-torus-knot position="4 1.75 -4" radius="0.5" color="#00FFFF">
+            <a-text value="This is a-torus-knot" color="#111" align="center" position="0 0 0.7"></a-text>
+        </a-torus-knot>
+        <a-torus position="-4 1.75 -4" arc="320" radius="0.5" radius-tubular="0.1" color="#FF0000" rotation="0 45 0">
+            <a-text value="This is a-torus" color="#111" align="center" position="0 0 0.7"></a-text>
+        </a-torus>
+        <a-dodecahedron position="-2.5 0.5 -2.5" radius="0.5" color="#FFF000">
+            <a-text value="This is a-dodecahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-dodecahedron>
+        <a-tetrahedron position="0 0.5 -2" color="maroon" radius="0.5" height="0.2">
+            <a-text value="This is a-tetrahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-tetrahedron>
+        <a-cone position="2 0.5 -2.5" color="tomato" radius-bottom="0.5" radius-top="0" height="1">
+            <a-text value="This is a-cone" color="#111" align="center" position="0 0 0.5"></a-text>
+        </a-cone>
+    </a-scene>
+</body>
+
+</html>

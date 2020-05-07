@@ -9,15 +9,20 @@
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
-    <title>WebAR: a-plane</title>
+    <title>WebAR: a-text</title>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
-        <a-anchor hit-testing-enabled='true'>
-            <a-plane width="2" height="1" position='0 0 0' rotation="-90 0 0" color="blue" material='opacity: 0.5;'>
-                <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
-            </a-plane>
+        <a-anchor hit-testing-enabled="true">
+            <a-entity rotation="-90 0 0">
+                <a-text value="This is a-text" color="yellow" position="0 1.5 0" align="center"></a-text>
+                <!-- a-plane -->
+                <!-- https://aframe.io/docs/1.0.0/primitives/a-text.html -->
+                <a-plane width="2" height="1" color="blue" material="opacity: 0.5;">
+                    <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
+                </a-plane>
+            </a-entity>
         </a-anchor>
         <a-entity camera static></a-entity>
     </a-scene>

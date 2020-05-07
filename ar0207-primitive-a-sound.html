@@ -1,0 +1,28 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: a-sound</title>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene vr-mode-ui="enabled: false" embedded arjs>
+        <a-assets>
+            <a-asset-item id="hidangan" src="click.mp3"></a-asset-item>
+        </a-assets>
+        <a-anchor hit-testing-enabled='true'>
+            <!-- https://aframe.io/docs/1.0.0/primitives/a-sound.html -->
+            <a-sound src="src: url(click.mp3)" autoplay="true" position="0 2 5"></a-sound>
+        </a-anchor>
+        <a-entity camera static></a-entity>
+    </a-scene>
+</body>
+
+</html>

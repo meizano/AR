@@ -1,0 +1,34 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Primitive 2D Objects</title>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene vr-mode-ui="enabled: false" embedded arjs>
+        <a-anchor hit-testing-enabled="true">
+            <a-entity rotation="-90 0 0">
+                <a-plane position="0 0 -3" rotation="-90 0 0" width="4" height="4" color="#7BC8A4">
+                    <a-text value="This is a-plane" color="#111" align="center" position="0 -1.5 0"></a-text>
+                </a-plane>
+                <a-triangle position="-1.5 1 -3" rotation="-45 0 0" radius="0.5" color="grey">
+                    <a-text value="This is a-triangle" color="#111" align="center"></a-text>
+                </a-triangle>
+                <a-circle position="1.5 1 -3" rotation="-45 0 0" radius="0.5" color="purple">
+                    <a-text value="This is a-circle" color="#111" align="center"></a-text>
+                </a-circle>
+            </a-entity>
+        </a-anchor>
+        <a-entity camera static></a-entity>
+    </a-scene>
+</body>
+
+</html>
