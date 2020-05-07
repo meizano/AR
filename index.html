@@ -13,15 +13,22 @@
     <style>
         /* Mengatur posisi elemen pada halaman */
         
-        #UI {
+        #UItop {
             position: fixed;
             top: 1rem;
             left: 1rem;
             right: 1rem;
         }
+        
+        #UIbottom {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+        }
         /* Styling */
         
-        #UI {
+        .UI {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 1.5em;
             font-weight: 200;
@@ -50,7 +57,10 @@
 
     </a-scene>
     <!-- UI Element outside a-scene -->
-    <div id="UI">Arahkan kamera ke marker hiro. "Hiro pattern with border.pdf" di direktori pattern dapat dicetak sebagai marker.</div>
+    <div id="UItop" class="UI">Arahkan kamera ke marker hiro. "Hiro pattern with border.pdf" di direktori pattern dapat dicetak sebagai marker.</div>
+    <div id="UIbottom" class="UI">Meizano Github WebAR
+        <a href="https://github.com/meizano/AR"></a>
+    </div>
 </body>
 
 </html>
