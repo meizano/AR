@@ -1,0 +1,31 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>WebAR: Image Tracking (NFT)</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan NFT dan menyematkan kamera -->
+    <script src="./js/arjs/aframe-ar-nft.js"></script>
+    <!-- Library untuk AR.js agar obyek selalu menghadap kamera -->
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
+    <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
+    <a-scene vr-mode-ui="enabled: false;" embedded arjs="sourceType: webcam;debugUIEnabled: false;">
+
+        <!-- camera -->
+        <!-- camera: berguna untuk meletakkan layer dunia nyata yang ditangkap menggunakan kamera -->
+        <a-camera gps-camera rotation-reader> </a-camera>
+
+        <a-text value="Tulisan ini selalu menghadap kamera." look-at="[gps-camera]" scale="120 120 120" gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"></a-text>
+
+    </a-scene>
+</body>
+
+</html>

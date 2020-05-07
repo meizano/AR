@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>AR.js: Dynamic Content from JSON</title>
+    <title>WebAR: Dynamic Content from JSON</title>
     <script src="./js/aframe/aframe.min.js"></script>
     <script src="./js/arjs/aframe-ar.js"></script>
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body style="margin : 0px; overflow: hidden;">
 
-    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
     </a-scene>
@@ -39,10 +39,10 @@
         }
 
         // Variabel penampung nilai dari server
-        var ruanganJSON = {};
+        let ruanganJSON = {};
 
         // Mengambil data JSON dari server
-        var url = './dispatcher/data.json'; // URL dari data JSON
+        let url = './dispatcher/data.json'; // URL dari data JSON
         fetch(url)
             .then((resp) => resp.json())
             .then(function(data) {

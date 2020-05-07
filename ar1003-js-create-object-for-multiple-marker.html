@@ -1,0 +1,64 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Create Object for Multiple Marker with JavaScript</title>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <!-- arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3" is for detecting barcode 3x3 -->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro"></a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='1'></a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='2'></a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='3'></a-marker>
+    </a-scene>
+    <script>
+        // mengakses DOM marker hiro
+        let markerHiro = document.querySelector("a-marker[preset='hiro']");
+
+        // mengakses DOM marker barcode 1
+        let marker1 = document.querySelector("a-marker[type='barcode'][value='1']");
+
+        // mengakses DOM marker barcode 2
+        let marker2 = document.querySelector("a-marker[type='barcode'][value='2']");
+
+        // mengakses DOM marker barcode 3
+        let marker3 = document.querySelector("a-marker[type='barcode'][value='3']");
+
+        // Membuat obyek bola
+        let bola = document.createElement("a-sphere");
+        bola.setAttribute("color", "yellow");
+        bola.setAttribute("radius", 0.5);
+
+        // Membuat obyek kotak
+        let kotak = document.createElement("a-box");
+        kotak.setAttribute("color", "purple");
+
+        // Menambahkan obyek pada marker
+        markerHiro.appendChild(bola);
+        marker1.appendChild(bola);
+        let clnbola = bola.cloneNode(true);
+        marker2.appendChild(clnbola);
+        marker3.appendChild(kotak);
+    </script>
+</body>
+
+</html>

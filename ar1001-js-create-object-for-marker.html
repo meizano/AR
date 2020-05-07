@@ -9,20 +9,27 @@
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
-    <title>AR.js: Load Model GLTF dengan Atribut pada A-Entity</title>
+    <title>WebAR: Create Object for Marker with JavaScript</title>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
-    <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
-        <!-- camera -->
-        <a-entity camera static></a-entity>
-
-        <a-anchor hit-testing-enabled='true'>
-            <a-entity gltf-model="./assets/cookie5/cookie5.gltf" rotation="0 0 0" position='0 0 0' scale="1 1 1"></a-entity>
-        </a-anchor>
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+        <a-marker preset="hiro"></a-marker>
     </a-scene>
+    <script>
+        // mengakses DOM marker
+        let marker = document.querySelector("a-marker");
+
+        // Membuat obyek
+        let bola = document.createElement("a-sphere");
+        bola.setAttribute("color", "yellow");
+        bola.setAttribute("radius", 0.5);
+
+        // Menambahkan obyek pada marker
+        marker.appendChild(bola);
+    </script>
 </body>
 
 </html>

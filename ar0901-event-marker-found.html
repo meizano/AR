@@ -1,0 +1,76 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Found Marker Event</title>
+    <style>
+        /* Mengatur posisi elemen pada halaman */
+        
+        #UI {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+        }
+        /* Styling */
+        
+        #UI {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            font-weight: 200;
+            text-align: center;
+            color: orange;
+            background-color: blue;
+            display: block;
+        }
+        
+        .found {
+            color: red;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset='hiro'>
+            <a-box position='0 0.5 0' material='opacity: 0.5;color:cyan;'></a-box>
+        </a-marker>
+
+    </a-scene>
+    <!-- UI Element outside a-scene -->
+    <div id="UI">Marker information here.</div>
+
+    <script>
+        let ui = document.querySelector("#UI");
+
+        // Detecting single marker
+        let m = document.querySelector("a-marker");
+
+        m.addEventListener("markerFound", (e) => {
+            let posx = m.object3D.position.x;
+            let posy = m.object3D.position.y;
+            let posz = m.object3D.position.z;
+
+            let message = "Found marker at x: " + m.object3D.position.x + ", y: " + m.object3D.position.x + ", z: " + m.object3D.position.z;
+
+            ui.classList.add("found");
+            ui.innerHTML = "message";
+        });
+    </script>
+    <!-- referensi: https://stackoverflow.com/questions/44799413/how-to-detect-when-a-marker-is-found-in-ar-js -->
+</body>
+
+</html>

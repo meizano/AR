@@ -9,7 +9,7 @@
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
-    <title>AR.js: Marker Occlusion</title>
+    <title>WebAR: Marker Move Object</title>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
@@ -28,41 +28,25 @@
     </a-scene>
     <script>
         // a-marker
-        const m = document.querySelector("a-marker");
+        let m = document.querySelector("a-marker");
 
         // a-box
-        var box = document.querySelector("a-box");
-
-        var object3D;
+        let box = document.querySelector("a-box");
 
         function updateTransformation(obj3d, ent) {
             console.log(obj3d.position);
             console.log(obj3d.quaternion);
-            object3D = obj3d;
-            ent.object3D.setRotationFromQuaternion(object3D.quaternion);
-            ent.object3D.position.set(object3D.position.x, object3D.position.y, object3D.position.z);
+            ent.object3D.setRotationFromQuaternion(obj3d.quaternion);
+            ent.object3D.position.set(obj3d.position.x, obj3d.position.y, obj3d.position.z);
         }
 
-        var object3Dinit = {
-            "position": {
-                "x": -2,
-                "y": -2,
-                "z": -2
-            },
-            "quaternion": {
-                "_x": 0,
-                "_y": 0,
-                "_z": 0,
-                "_w": 1
-            }
-        };
-
         m.addEventListener("markerFound", (e) => {
-            setTimeout(updateTransformation(e.target.object3D, box), 2);
+            // should be using tick in registercomponent
+            setTimeout(updateTransformation(m.object3D, box), 2);
         });
 
         m.addEventListener("markerLost", (e) => {
-            setTimeout(updateTransformation(e.target.object3D, box), 2);
+            setTimeout(updateTransformation(m.object3D, box), 2);
         });
     </script>
 </body>

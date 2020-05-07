@@ -1,0 +1,79 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Create Multiple Object and Marker with JavaScript</title>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <!-- arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3" is for detecting barcode 3x3-->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+        // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+
+        // MARKER HIRO
+        //Membuat marker hiro
+        let markerHiro = document.createElement("a-marker");
+        markerHiro.setAttribute("preset", "hiro");
+
+        // Membuat obyek
+        let bola = document.createElement("a-sphere");
+        bola.setAttribute("color", "yellow");
+        bola.setAttribute("radius", 0.5);
+
+        // Menambahkan obyek pada marker hiro
+        markerHiro.appendChild(bola);
+
+        // Menambahkan marker hiro
+        scene.appendChild(markerHiro);
+
+        // MARKER KANJI
+        //Membuat marker kanji
+        let markerKanji = document.createElement("a-marker");
+        markerKanji.setAttribute("preset", "kanji");
+
+        // Membuat obyek
+        let silinder = document.createElement("a-cylinder");
+        silinder.setAttribute("color", "blue");
+        silinder.setAttribute("radius", 0.5);
+
+        // Menambahkan obyek pada marker kanji
+        markerKanji.appendChild(silinder);
+
+        // Menambahkan marker kanji
+        scene.appendChild(markerKanji);
+
+        // Menggunakan for untuk membuat barcode
+        let barcodeAwal = 1;
+        let barcodeAkhir = 10;
+        for (i = barcodeAwal; i <= barcodeAkhir; i++) {
+            //Membuat marker barcode
+            let markerBarcode = document.createElement("a-marker");
+            markerBarcode.setAttribute("type", "barcode");
+            markerBarcode.setAttribute("value", i);
+
+            // Membuat obyek
+            let kotak = document.createElement("a-box");
+            kotak.setAttribute("color", "purple");
+
+            // Menambahkan obyek pada marker barcode
+            markerBarcode.appendChild(kotak);
+
+            // Menambahkan marker barcode pada DOM scene
+            scene.appendChild(markerBarcode);
+        }
+    </script>
+</body>
+
+</html>

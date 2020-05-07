@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>AR.js: Render HTML</title>
+    <title>WebAR: Render HTML</title>
     <script src="./js/aframe/aframe.min.js"></script>
     <script src="./js/arjs/aframe-ar.js"></script>
     <script src="./library/aframe-html-shader.min.js"></script>
@@ -113,11 +113,11 @@
                     this.emojiTime = 0;
                 }
 
-                var text = this.text;
+                let text = this.text;
                 this.lettersTime += dt;
                 // Update letters, optimizing for the shader's refresh FPS.
                 if (this.lettersTime >= this.lettersUpdateDur) {
-                    var indexEnd = ++this.lettersIndex % (text.length + 1)
+                    let indexEnd = ++this.lettersIndex % (text.length + 1)
                     if (text.charAt(indexEnd) === ' ') {
                         indexEnd = ++this.lettersIndex % (text.length + 1)
                     }
@@ -129,7 +129,7 @@
     </script>
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs update-html>
         <a-anchor hit-testing-enabled='true'>
 

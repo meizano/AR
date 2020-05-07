@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>AR.js: Barcode Value</title>
+    <title>WebAR: Barcode Value</title>
     <script src="./js/aframe/aframe.min.js"></script>
     <script src="./js/arjs/aframe-ar.js"></script>
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body style="margin : 0px; overflow: hidden;">
     <!-- detectionMode: mono_and_matrix adalah untuk memindai marker matriks | matrixCodeType: 3x3 adalah dimensi matriks yang dipindai -->
-    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
 
         <!-- add a simple camera -->
         <a-entity camera static></a-entity>

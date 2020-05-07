@@ -1,0 +1,228 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Multiple Marker</title>
+    <style>
+        /* Mengatur posisi elemen pada halaman */
+        
+        #UI {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+        }
+        /* Styling */
+        
+        #UI {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            font-weight: 200;
+            text-align: center;
+            color: orange;
+            background-color: blue;
+            display: block;
+        }
+        
+        .found {
+            color: red;
+            background-color: green;
+        }
+        
+        .lost {
+            color: green;
+            background-color: red;
+        }
+    </style>
+    <!-- include text geometry -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;'>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+        <!-- create assets -->
+        <a-assets timeout='900000'>
+            <a-asset-item id="EE" src="./pattern/ar-marker-unila.png"></a-asset-item>
+            <a-asset-item id="drone" src="./assets/busterDrone/busterDrone.gltf"></a-asset-item>
+            <a-asset-item id="motorbike" src="./assets/motorbike/scene.gltf"></a-asset-item>
+            <a-asset-item id="helmet" src="./assets/damagedHelmet/damagedHelmet.gltf"></a-asset-item>
+            <a-asset-item id="skull" src="./assets/skull_downloadable/scene.gltf"></a-asset-item>
+            <a-asset-item id="foto1" src="./images/photo/DSC00013.jpg"></a-asset-item>
+            <a-asset-item id="foto2" src="./images/photo/DSC00016.jpg"></a-asset-item>
+            <a-asset-item id="foto3" src="./images/photo/DSC02977.jpg"></a-asset-item>
+            <a-asset-item id="foto4" src="./images/photo/DSC03357.jpg"></a-asset-item>
+            <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
+        </a-assets>
+        <!-- handle unknown marker -->
+        <!-- <a-marker type='unknown'>
+			<a-box depth="1" height="1" width="1" position='0 0.5 0' material='opacity: 0.5; side:double; color:blue;'></a-box>
+		</a-marker> -->
+
+        <!-- handle hiro marker -->
+        <a-marker preset='hiro'>
+            <a-box position='0 0.5 0' src="#EE"></a-box>
+        </a-marker>
+
+        <!-- handle custom marker -->
+        <a-marker preset='custom' type='pattern' url='./marker/datamatrix-1234567890/marker-datamatrix-1234567890.patt'>
+            <a-image src="#foto1" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
+        </a-marker>
+
+        <!-- handle custom marker -->
+        <a-marker preset='custom' type='pattern' url='./marker/unila/pattern-Unila-warna.patt'>
+            <a-image src="#foto2" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='0'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+                <a-torus-knot radius='0.26' radius-tubular='0.05'></a-torus-knot>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='1'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+                <a-torus radius='0.26' radius-tubular='0.05'></a-torus>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='2'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="green">
+                <a-gltf-model src="#motorbike" rotation="90 0 0" position='0 -0.2 0.2' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='3'>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:cyan;'>
+                <a-octahedron radius='0.26' radius-tubular='0.05'></a-octahedron>
+            </a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='4'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="cyan">
+                <a-gltf-model src="#drone" rotation="90 0 0" position='0 -0.2 1' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='5'>
+            <a-image src="#foto2" rotation="-90 0 0" width="2" height="1"></a-image>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='6'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="purple">
+                <a-gltf-model src="#helmet" rotation="90 0 0" position='0 -0.2 0.5' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='7'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto3">
+                <a-text value="Bunga" color="#111" position="0 -0.7 0" align="center"></a-text>
+                <a-sphere color="blue" position="-0.7 -0.7 0" radius="0.2"></a-sphere>
+                <a-sphere color="red" position="0.7 -0.7 0" radius="0.2"></a-sphere>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='8'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="white" src="#foto4">
+                <a-torus-knot radius='0.06' radius-tubular='0.05' position="0.7 -0.7 0">
+                </a-torus-knot>
+                <a-torus-knot radius='0.06' radius-tubular='0.05' position="-0.7 -0.7 0">
+                </a-torus-knot>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='9'>
+            <a-plane width="1" height="1" position='0 0 0' rotation="-90 0 0" color="black">
+                <a-gltf-model src="#skull" rotation="90 0 0" position='0 -0.2 0.5' scale="0.5 0.5 0.5"></a-gltf-model>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type='barcode' value='10'>
+            <a-plane width="6" height="6" position="-3 0 -2" rotation="-90 0 0" color="white">
+                <a-plane width="3" height="3" src="#foto1" position="0 0 0.5">
+                    <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;" material="shader: flat; color: blue" align="center"></a-entity>
+                    <a-entity position="0 -2.5 0" text-geometry="value:  Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; curveSegments: 1" material="shader: flat; color: blue; transparent: true; opacity: 0.2"
+                        align="center"></a-entity>
+                </a-plane>
+            </a-plane>
+        </a-marker>
+
+        <!-- handle kanji marker -->
+        <a-marker preset='kanji'>
+            <a-cylinder position='0 0.5 0' material='opacity: 0.5; side: double;color:green;'>
+            </a-cylinder>
+        </a-marker>
+
+        <script>
+            let ui = document.querySelector("#UI");
+
+            // Function to display information
+            function markerInfo(marker, evt, infoui) {
+                let posx = marker.object3D.position.x;
+                let posy = marker.object3D.position.y;
+                let posz = marker.object3D.position.z;
+
+
+                let message = "marker " + m.getAttribute("type") + " " + m.getAttribute("value") + " at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x + ", z: " + marker.object3D.position.z;
+
+                if (evt) {
+                    infoui.classList.remove("lost");
+                    infoui.classList.add("found");
+                    message = "Found " + message;
+                } else {
+                    infoui.classList.remove("found");
+                    infoui.classList.add("lost");
+                    message = "Lost " + message;
+                }
+
+                infoui.innerHTML = "message";
+            }
+
+            // Detecting single marker
+            let m = document.querySelector("a-marker[preset='hiro']");
+
+            m.addEventListener("markerFound", (e) => {
+                markerInfo(m, true, ui);
+            });
+
+            m.addEventListener("markerLost", (e) => {
+                markerInfo(m, false, ui);
+            });
+
+            // Detecting multiple marker
+            let ms = document.querySelectorAll("a-marker");
+
+            for (let i = 0; i < ms.length; i++) {
+                ms[i].addEventListener("markerFound", (e) => {
+                    markerInfo(ms[i], true, ui);
+                });
+
+                ms[i].addEventListener("markerLost", (e) => {
+                    markerInfo(ms[i], false, ui);
+                });
+            }
+        </script>
+    </a-scene>
+</body>
+
+</html>

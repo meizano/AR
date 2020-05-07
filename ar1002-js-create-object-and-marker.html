@@ -1,0 +1,40 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <title>WebAR: Create Object and Marker with JavaScript</title>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+        // mengakses DOM scene
+        scene = document.querySelector("a-scene");
+
+        // Membuat obyek
+        let kotak = document.createElement("a-box");
+        kotak.setAttribute("color", "purple");
+
+        //Membuat marker
+        let marker = document.createElement("a-marker");
+        marker.setAttribute("preset", "hiro");
+
+        // Menambahkan obyek pada marker
+        marker.appendChild(kotak);
+
+        // Menambahkan marker pada DOM scene
+        scene.appendChild(marker);
+    </script>
+</body>
+
+</html>

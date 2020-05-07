@@ -9,7 +9,7 @@
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
-    <title>AR.js: Marker Occlusion</title>
+    <title>WebAR: Marker Drawing</title>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
@@ -41,11 +41,11 @@
             let rotz = THREE.Math.radToDeg(obj3d.rotation.z);
 
             // template literal to create object
-            var obyek = `<a-box position="${posx} ${posy} ${posz}+.5" rotation="${rotx} ${roty} ${rotz}" color="red" material="opacity: 0.5; color: red;"></a-box>`;
+            let obyek = `<a-box position="${posx} ${posy} ${posz}+.5" rotation="${rotx} ${roty} ${rotz}" color="red" material="opacity: 0.5; color: red;"></a-box>`;
             return obyek;
         }
 
-        var object3Dinit = {
+        let object3Dinit = {
             "position": {
                 "x": 0,
                 "y": 0,
@@ -58,21 +58,19 @@
             }
         };
 
-        var object3D;
+        let object3D;
 
         m.addEventListener("markerFound", (e) => {
             console.log("markerFound");
-            console.log(e.target.object3D.position);
-            // console.log(e.target.object3D.rotation);
+            console.log(m.object3D.position);
             object3D = object3Dinit;
             m.insertAdjacentHTML("beforeend", buatObyek(object3Dinit));
-            object3D = e.target.object3D;
+            object3D = m.object3D;
         });
 
         m.addEventListener("markerLost", (e) => {
             console.log("markerLost");
-            console.log(e.target.object3D.position);
-            // console.log(e.target.object3D.rotation);
+            console.log(m.object3D.position);
             penampung.insertAdjacentHTML("beforeend", buatObyek(object3D));
         });
     </script>
