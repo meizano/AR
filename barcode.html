@@ -10,15 +10,43 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
+    <!-- UI Element outside a-scene -->
+    <div id="UI">Marker information here.</div>
+
+    <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
+    <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <!-- detectionMode: mono_and_matrix adalah untuk memindai marker matriks | matrixCodeType: 3x3 adalah dimensi matriks yang dipindai -->
     <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro">
+            <a-circle color="blue" radius="1" rotation="-90 0 0">
+                <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: orange;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
+                <a-text position="0 0 0.2" value="${i}" color="orange" align="center" width="30">
+                </a-text>
+                <a-box position="-1 -1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: orange;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
+            </a-circle>
+        </a-marker>
+
+        <!-- handle kanji marker -->
+        <a-marker preset="kanji">
+            <a-circle color="green" radius="1" rotation="-90 0 0">
+                <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: yellow;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
+                <a-text position="0 0 0.2" value="${i}" color="yellow" align="center" width="30">
+                </a-text>
+                <a-box position="-1 -1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: yellow;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
+            </a-circle>
+        </a-marker>
 
         <!-- add a simple camera -->
         <a-entity camera static></a-entity>
     </a-scene>
     <script>
+        // mengakses DOM UI
+        let ui = document.querySelector("#UI");
+
         // mengakses DOM scene
-        scene = document.querySelector("a-scene");
+        let scene = document.querySelector("a-scene");
 
         // Fungsi membuat obyek tulisan pada a-frame
         function listBarcode(barcode, scenel) {
@@ -26,7 +54,7 @@
                 let marker =
                     `<a-marker type="barcode" value="${i}">
                         <a-circle color="black" radius="1" rotation="-90 0 0" >
-                            <a-box position='1 1 0' depth='0.3' height='0.3' width='0.3' rotation="0 0 0" material='color: red;'
+                            <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: red;"
                 animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
                             <a-text 
                                 position="0 0 0.2"
@@ -35,33 +63,55 @@
                                 align="center"
                                 width="30">
                             </a-text>
-                            <a-box position='-1 -1 0' depth='0.3' height='0.3' width='0.3' rotation="0 0 0" material='color: red;'
+                            <a-box position="-1 -1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: red;"
                 animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
                         </a-circle>
                 </a-marker>
                 `;
-                scenel.insertAdjacentHTML('beforeend', marker);
+                scenel.insertAdjacentHTML("beforeend", marker);
             }
         }
 
-        function detectMarker(scenel) {
+        function detectMarker(scenel, uiobj) {
+
+            // Function to display information
+            function markerInfo(marker, evt, infoui) {
+                let posx = marker.object3D.position.x;
+                let posy = marker.object3D.position.y;
+                let posz = marker.object3D.position.z;
+
+
+                let message = "marker " + m.getAttribute("type") + " " + m.getAttribute("value") + " at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x + ", z: " + marker.object3D.position.z;
+
+                if (evt) {
+                    infoui.classList.remove("lost");
+                    infoui.classList.add("found");
+                    message = "Found " + message;
+                } else {
+                    infoui.classList.remove("found");
+                    infoui.classList.add("lost");
+                    message = "Lost " + message;
+                }
+
+                infoui.innerHTML = "message";
+            }
+
             // Detecting multiple marker
-            let ms = scenel.querySelectorAll("a-marker");
+            let ms = document.querySelectorAll("a-marker");
+
             for (let i = 0; i < ms.length; i++) {
                 ms[i].addEventListener("markerFound", (e) => {
-                    console.log("found marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute(
-                        "value"));
+                    markerInfo(ms[i], true, uiobj);
                 });
 
                 ms[i].addEventListener("markerLost", (e) => {
-                    console.log("lost marker " + ms[i].getAttribute("type") + " " + ms[i].getAttribute(
-                        "value"));
+                    markerInfo(ms[i], false, uiobj);
                 });
             }
         }
 
         listBarcode(64, scene);
-        detectMarker(scene);
+        detectMarker(scene, ui);
     </script>
 </body>
 

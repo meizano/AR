@@ -44,20 +44,19 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
+    <!-- UI Element outside a-scene -->
+    <div id="UI">Marker information here.</div>
     <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
-
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
 
         <!-- handle hiro marker -->
         <a-marker preset='hiro'>
             <a-box position='0 0.5 0' material='opacity: 0.5;color:cyan;'></a-box>
         </a-marker>
 
-    </a-scene>
-    <!-- UI Element outside a-scene -->
-    <div id="UI">Marker information here.</div>
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
 
+    </a-scene>
     <script>
         let ui = document.querySelector("#UI");
 

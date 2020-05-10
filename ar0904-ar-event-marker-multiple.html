@@ -46,10 +46,10 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;'>
+    <!-- UI Element outside a-scene -->
+    <div id="UI">Marker information here.</div>
 
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;'>
         <!-- create assets -->
         <a-assets timeout='900000'>
             <a-asset-item id="EE" src="./pattern/ar-marker-unila.png"></a-asset-item>
@@ -63,10 +63,11 @@
             <a-asset-item id="foto4" src="./images/photo/DSC03357.jpg"></a-asset-item>
             <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
         </a-assets>
+
         <!-- handle unknown marker -->
-        <!-- <a-marker type='unknown'>
-			<a-box depth="1" height="1" width="1" position='0 0.5 0' material='opacity: 0.5; side:double; color:blue;'></a-box>
-		</a-marker> -->
+        <a-marker type="unknown">
+            <a-box depth="1" height="1" width="1" position="0 0.5 0" material="opacity: 0.5; side:double; color:blue;"></a-box>
+        </a-marker>
 
         <!-- handle hiro marker -->
         <a-marker preset='hiro'>
@@ -173,56 +174,59 @@
             </a-cylinder>
         </a-marker>
 
-        <script>
-            let ui = document.querySelector("#UI");
-
-            // Function to display information
-            function markerInfo(marker, evt, infoui) {
-                let posx = marker.object3D.position.x;
-                let posy = marker.object3D.position.y;
-                let posz = marker.object3D.position.z;
-
-
-                let message = "marker " + m.getAttribute("type") + " " + m.getAttribute("value") + " at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x + ", z: " + marker.object3D.position.z;
-
-                if (evt) {
-                    infoui.classList.remove("lost");
-                    infoui.classList.add("found");
-                    message = "Found " + message;
-                } else {
-                    infoui.classList.remove("found");
-                    infoui.classList.add("lost");
-                    message = "Lost " + message;
-                }
-
-                infoui.innerHTML = "message";
-            }
-
-            // Detecting single marker
-            let m = document.querySelector("a-marker[preset='hiro']");
-
-            m.addEventListener("markerFound", (e) => {
-                markerInfo(m, true, ui);
-            });
-
-            m.addEventListener("markerLost", (e) => {
-                markerInfo(m, false, ui);
-            });
-
-            // Detecting multiple marker
-            let ms = document.querySelectorAll("a-marker");
-
-            for (let i = 0; i < ms.length; i++) {
-                ms[i].addEventListener("markerFound", (e) => {
-                    markerInfo(ms[i], true, ui);
-                });
-
-                ms[i].addEventListener("markerLost", (e) => {
-                    markerInfo(ms[i], false, ui);
-                });
-            }
-        </script>
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
     </a-scene>
+
+    <script>
+        let ui = document.querySelector("#UI");
+
+        // Function to display information
+        function markerInfo(marker, evt, infoui) {
+            let posx = marker.object3D.position.x;
+            let posy = marker.object3D.position.y;
+            let posz = marker.object3D.position.z;
+
+
+            let message = "marker " + m.getAttribute("type") + " " + m.getAttribute("value") + " at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x + ", z: " + marker.object3D.position.z;
+
+            if (evt) {
+                infoui.classList.remove("lost");
+                infoui.classList.add("found");
+                message = "Found " + message;
+            } else {
+                infoui.classList.remove("found");
+                infoui.classList.add("lost");
+                message = "Lost " + message;
+            }
+
+            infoui.innerHTML = "message";
+        }
+
+        // Detecting single marker
+        let m = document.querySelector("a-marker[preset='hiro']");
+
+        m.addEventListener("markerFound", (e) => {
+            markerInfo(m, true, ui);
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            markerInfo(m, false, ui);
+        });
+
+        // Detecting multiple marker
+        let ms = document.querySelectorAll("a-marker");
+
+        for (let i = 0; i < ms.length; i++) {
+            ms[i].addEventListener("markerFound", (e) => {
+                markerInfo(ms[i], true, ui);
+            });
+
+            ms[i].addEventListener("markerLost", (e) => {
+                markerInfo(ms[i], false, ui);
+            });
+        }
+    </script>
 </body>
 
 </html>
