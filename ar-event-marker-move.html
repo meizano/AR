@@ -10,6 +10,20 @@
     <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar.js"></script>
     <title>WebAR: Marker Move Object</title>
+    <script>
+        let edo;
+        AFRAME.registerComponent("move", {
+            init: function() {
+                edo = this;
+            },
+            tick: function() {
+                var obj3d = this.el.sceneEl.querySelector("a-marker");
+                // console.log(obj3d);
+                this.el.object3D.setRotationFromQuaternion(obj3d.object3D.quaternion);
+                this.el.object3D.position.set(obj3d.object3D.position.x, obj3d.object3D.position.y, obj3d.object3D.position.z);
+            }
+        });
+    </script>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
@@ -20,13 +34,15 @@
             <a-sphere color="red" material="opacity: 0.5; color: blue;" radius="0.5"></a-sphere>
         </a-marker>
 
-        <a-box color="red" material="opacity: 0.5; color: red;"></a-box>
+        <a-box move color="red" material="opacity: 0.5; color: red;"></a-box>
 
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
 
     </a-scene>
     <script>
+        // DON'T USE THIS, USE AFRAME.RegisterComponent instead
+        /*
         // a-marker
         let m = document.querySelector("a-marker");
 
@@ -48,6 +64,7 @@
         m.addEventListener("markerLost", (e) => {
             setTimeout(updateTransformation(m.object3D, box), 2);
         });
+        */
     </script>
 </body>
 
