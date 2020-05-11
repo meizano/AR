@@ -14,14 +14,13 @@
 
 <body style="margin : 0px; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
-        <a-assets>
-            <a-asset-item id="hidangan" src="click.mp3"></a-asset-item>
-        </a-assets>
-        <a-anchor hit-testing-enabled='true'>
-            <!-- https://aframe.io/docs/1.0.0/primitives/a-sound.html -->
-            <a-sound src="src: url(click.mp3)" autoplay="true" position="0 2 5"></a-sound>
+        <a-anchor>
+            <a-box>
+                <!-- https://aframe.io/docs/1.0.0/primitives/a-sound.html -->
+                <a-sound src="src: url(./sounds/dland.wav)" autoplay="true"></a-sound>
+            </a-box>
         </a-anchor>
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

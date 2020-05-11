@@ -14,41 +14,41 @@
 
 <body style="margin : 0px; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
-        <a-anchor hit-testing-enabled="true">
+        <a-anchor>
             <a-entity rotation="-90 0 0">
-                <a-box position="0 0.6 -4" rotation="0 45 0" color="#FFC300">
-                    <a-text value="This is a-box" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-box position="0 0 0" rotation="0 45 0" color="#FFC300">
+                    <a-text value="This is a-box" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-box>
-                <a-sphere position="0 3.6 -4" radius="0.75" color="silver">
+                <a-sphere position="0 3.6 0" radius="0.75" color="silver">
                     <a-text value="This is a-sphere" color="#111" align="center" position="0 -0.2 1.25"></a-text>
                 </a-sphere>
-                <a-cylinder position="0 1.75 -4" radius="0.5" height="1.5" color="green">
-                    <a-text value="This is a-cylinder" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-cylinder position="0 1.75 0" radius="0.5" height="1.5" color="green">
+                    <a-text value="This is a-cylinder" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-cylinder>
-                <a-octahedron position="-3 4 -4" radius="0.5" height="2" color="orange">
-                    <a-text value="This is a-octahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-octahedron position="-2 4 0" radius="0.5" height="2" color="orange">
+                    <a-text value="This is a-octahedron" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-octahedron>
-                <a-icosahedron position="3 4 -4" radius="0.5" height="2" color="blue">
-                    <a-text value="This is a-icosahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-icosahedron position="2 4 0" radius="0.5" height="2" color="blue">
+                    <a-text value="This is a-icosahedron" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-icosahedron>
-                <a-torus-knot position="4 1.75 -4" radius="0.5" color="#00FFFF">
+                <a-torus-knot position="2 1.75 0" radius="0.5" color="#00FFFF">
                     <a-text value="This is a-torus-knot" color="#111" align="center" position="0 0 0.7"></a-text>
                 </a-torus-knot>
-                <a-torus position="-4 1.75 -4" arc="320" radius="0.5" radius-tubular="0.1" color="#FF0000" rotation="0 45 0">
+                <a-torus position="-2 1.75 0" arc="320" radius="0.5" radius-tubular="0.1" color="#FF0000" rotation="0 45 0">
                     <a-text value="This is a-torus" color="#111" align="center" position="0 0 0.7"></a-text>
                 </a-torus>
-                <a-dodecahedron position="-2.5 0.5 -2.5" radius="0.5" color="#FFF000">
-                    <a-text value="This is a-dodecahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-dodecahedron position="-2 -0.5 0" radius="0.5" color="#FFF000">
+                    <a-text value="This is a-dodecahedron" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-dodecahedron>
-                <a-tetrahedron position="0 0.5 -2" color="maroon" radius="0.5" height="0.2">
-                    <a-text value="This is a-tetrahedron" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-tetrahedron position="0 -1.5 0" color="maroon" radius="0.5" height="0.2">
+                    <a-text value="This is a-tetrahedron" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-tetrahedron>
-                <a-cone position="2 0.5 -2.5" color="tomato" radius-bottom="0.5" radius-top="0" height="1">
-                    <a-text value="This is a-cone" color="#111" align="center" position="0 0 0.5"></a-text>
+                <a-cone position="2 -0.5 0" color="tomato" radius-bottom="0.5" radius-top="0" height="1">
+                    <a-text value="This is a-cone" color="#111" align="center" position="0 0 0.6"></a-text>
                 </a-cone>
             </a-entity>
         </a-anchor>
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

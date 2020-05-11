@@ -15,17 +15,16 @@
 <body style="margin : 0px; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
         <a-assets>
-            <video id="penguin-sledding" autoplay loop="true" src="penguin-sledding.mp4"></video>
+            <video id="winter-landscape" autoplay loop="true" src="./videos/winter-landscape.mp4"></video>
         </a-assets>
 
-        <a-anchor hit-testing-enabled="true">
-            <!-- Using the asset management system. -->
-            <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
-
-            <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-            <a-video src="airbending.mp4"></a-video>
+        <a-anchor>
+            <a-entity rotation="-90 0 0" scale="0.25 0.25 0.25">
+                <!-- Using the asset management system. -->
+                <a-video src="#winter-landscape" width="16" height="9"></a-video>
+            </a-entity>
         </a-anchor>
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

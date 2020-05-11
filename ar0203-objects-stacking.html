@@ -20,15 +20,19 @@
             <img id="mahasiswa" src="./images/photo/mahasiswa.jpg">
             <img id="airterjun" src="./images/photo/wisata-air-terjun.jpg">
         </a-assets>
-        <a-anchor hit-testing-enabled="true">
+        <a-anchor>
             <a-entity rotation="-90 0 0">
-                <!-- a-plane -->
+                <!-- a-plane posisinya relatif terhadap a-entity -->
                 <a-plane width="2" height="1" color="blue" material="opacity: 0.5;">
-                    <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
+                    <!-- a-text posisinya relatif terhadap a-plane -->
+                    <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.7 0" align="center">
+                        <!-- a-cone posisinya relatif terhadap a-text -->
+                        <a-cone position="0 -0.15 0" rotation="180 0 0" scale=" 0.1 0.1 0.1" color="tomato" radius-bottom="0.5" radius-top="0" height="1"></a-cone>
+                    </a-text>
                 </a-plane>
             </a-entity>
         </a-anchor>
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

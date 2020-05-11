@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>WebAR: Marker with QR Code</title>
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <!-- include text geometry -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js">
+    </script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;">
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+        <!-- handle hiro marker -->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" material="color:blue;"></a-box>
+        </a-marker>
+
+        <!-- handle matrix marker -->
+        <a-marker type="barcode" value="0">
+            <a-box position="0 0.5 0" width="5" height="5" depth="5" material="opacity: 0.5; side: double;color:red;">
+                <a-torus-knot radius="0.26" radius-tubular="0.05" animation="property: rotation; to: 0 360 0;easing: linear; dur: 2000; loop: true;"></a-torus-knot>
+            </a-box>
+        </a-marker>
+
+    </a-scene>
+    <ul>
+        <li><a target="_blank" href="https://medium.com/chialab-open-source/how-to-deliver-ar-on-the-web-only-with-a-qr-code-e24b7b61f8cb">How to deliver AR on the web only with a QR Code</a></li>
+        <li><a target="_blank" href="https://www.qrcode-monkey.com/">QRCODEMONKEY: The 100% Free QR Code Generator</a></li>
+        <li><a target="_blank" href="http://au.gmented.com/app/marker/marker.php">Marker generator</a></li>
+        <li><a target="_blank" href="http://www.ucreative.com/articles/what-is-a-qr-code-and-how-does-it-work/">What Is A QR Code And How Does It Work? </a></li>
+    </ul>
+
+</body>
+
+</html>

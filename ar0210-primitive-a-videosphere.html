@@ -15,17 +15,16 @@
 <body style="margin : 0px; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
         <a-assets>
-            <video id="antarctica" autoplay loop="true" src="antarctica.mp4"> </video>
+            <video id="doi-suthep-360.mp4" autoplay loop="true" src="./videos/doi-suthep-360.mp4"> </video>
         </a-assets>
 
-        <a-anchor hit-testing-enabled="true">
-            <!-- Using the asset management system. -->
-            <a-videosphere src="#antarctica"></a-videosphere>
+        <!-- Using the asset management system. -->
+        <a-videosphere src="#doi-suthep-360.mp4"></a-videosphere>
 
-            <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-            <a-videosphere src="africa.mp4"></a-videosphere>
+        <a-anchor>
+            <a-icosahedron scale="0.3 0.3 0.3" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear; "></a-icosahedron>
         </a-anchor>
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

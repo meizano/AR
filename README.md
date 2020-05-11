@@ -36,7 +36,6 @@ Materi dibagi dalam 12 bagian, yaitu:
 * [ar0401-marker-preset](https://meizano.github.io/AR/ar0401-marker-preset.html)
 * [ar0402-marker-barcode](https://meizano.github.io/AR/ar0402-marker-barcode.html)
 * [ar0403-marker-custom](https://meizano.github.io/AR/ar0403-marker-custom.html)
-* [ar0404-marker-with-qr-code](https://meizano.github.io/AR/ar0404-marker-with-qr-code.html)
 5. AR Multiple Marker
 * [ar0501-marker-multiple](https://meizano.github.io/AR/ar0501-marker-multiple.html)
 6. AR Image Tracking (NFT)

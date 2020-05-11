@@ -18,18 +18,15 @@
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
 
-        <!-- handle hiro marker -->
-        <a-marker preset="hiro">
-            <a-box position="0 0.5 0" material="color: green;"></a-box>
-        </a-marker>
-
         <!-- handle barcode marker 3 -->
+        <!-- gambar marker ada di dalam direktori pattern -->
+        <!-- marker barcode dapat memiliki nilai dari 0 s.d. 63 -->
         <a-marker type="barcode" value="3" position="0 0 0">
             <a-box position="0 0.5 0" material="color: yellow;"></a-box>
         </a-marker>
 
         <!-- camera -->
-        <a-entity camera static>
+        <a-entity camera>
             <!-- object relative to camera -->
             <a-box position="0 3 -10" rotation="0 0 0" material="color: red;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-box>
         </a-entity>

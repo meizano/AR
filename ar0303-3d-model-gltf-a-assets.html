@@ -13,16 +13,16 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded vr-mode-ui="enabled: false;" arjs='debugUIEnabled: false;'>
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
         <a-assets>
             <a-asset-item id="hidangan" src="./assets/hidangan/buka-puasa-20200504.gltf"></a-asset-item>
         </a-assets>
 
-        <a-anchor hit-testing-enabled='true'>
-            <a-entity gltf-model="#hidangan" rotation="0 0 0" position='0 0 0' scale="1 1 1"></a-entity>
-        </a-anchor>
+        <a-marker>
+            <a-entity gltf-model="#hidangan" rotation="0 0 0" position="0 0 0" scale="1 1 1"></a-entity>
+        </a-marker>
 
-        <a-camera-static/>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

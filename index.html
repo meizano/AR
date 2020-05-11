@@ -61,7 +61,7 @@
     <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
 
         <!-- handle unknown marker -->
-        <a-marker preset="kanji">
+        <a-marker type="unknown">
             <a-circle color="purple" radius="1" rotation="-90 0 0">
                 <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: white;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
                 <a-text position="0 0 0.2" value="?" color="white" align="center" width="30">
@@ -74,7 +74,7 @@
         <a-marker preset="hiro">
             <a-circle color="blue" radius="1" rotation="-90 0 0">
                 <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: orange;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
-                <a-text position="0 0 0.2" value="〹" color="orange" align="center" width="30">
+                <a-text position="0 0 0.2" value="Hiro" color="orange" align="center" width="30">
                 </a-text>
                 <a-box position="-1 -1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: orange;" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
             </a-circle>
@@ -91,11 +91,11 @@
         </a-marker>
 
         <!-- add a simple camera -->
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
     <script>
         // mengakses DOM UI
-        let ui = document.querySelector("#UI");
+        let ui = document.querySelector("#UImarker");
 
         // mengakses DOM scene
         let scene = document.querySelector("a-scene");
@@ -132,8 +132,8 @@
                 let posy = marker.object3D.position.y;
                 let posz = marker.object3D.position.z;
 
-
-                let message = "marker " + m.getAttribute("type") + " " + m.getAttribute("value") + " at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x + ", z: " + marker.object3D.position.z;
+                let markerID = marker.getAttribute("preset") ? marker.getAttribute("preset") : marker.getAttribute("type") == "barcode" ? marker.getAttribute("type") + " " + marker.getAttribute("value") : marker.getAttribute("type");
+                let message = "marker " + markerID + " at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x + ", z: " + marker.object3D.position.z;
 
                 if (evt) {
                     infoui.classList.remove("lost");
@@ -145,7 +145,7 @@
                     message = "Lost " + message;
                 }
 
-                infoui.innerHTML = "message";
+                infoui.innerHTML = message;
             }
 
             // Detecting multiple marker

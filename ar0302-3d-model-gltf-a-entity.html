@@ -17,11 +17,11 @@
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
         <!-- camera -->
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
 
-        <a-anchor hit-testing-enabled='true'>
-            <a-entity gltf-model="./assets/cookie5/cookie5.gltf" rotation="0 0 0" position='0 0 0' scale="1 1 1"></a-entity>
-        </a-anchor>
+        <a-marker>
+            <a-entity gltf-model="./assets/cookie5/cookie5.gltf" rotation="0 0 0" position="0 0 0" scale="2 2 2"></a-entity>
+        </a-marker>
     </a-scene>
 </body>
 

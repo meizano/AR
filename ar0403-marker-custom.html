@@ -10,11 +10,16 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
 
         <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" src="./marker/unila-bw/logo-unila-bw.png"></a-plane>
 
-        <a-marker-camera type='pattern' url='./marker/unila-bw/ar-marker-unila.patt'></a-marker-camera>
+        <!-- gambar marker ada di dalam direktori marker -->
+        <!-- buat custom marker generator disini: https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html -->
+        <a-marker-camera type="pattern" url="./marker/unila-bw/ar-marker-unila.patt"></a-marker-camera>
+
+        <!-- Untuk testing bisa gunakan baris di bawah ini -->
+        <!-- <a-marker-camera preset="hiro"></a-marker-camera> -->
     </a-scene>
     <ul>
         <li><a target="_blank" href="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html">Custom Markers Generator</a></li>

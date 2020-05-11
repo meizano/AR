@@ -15,21 +15,22 @@
 <body style="margin : 0px; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
         <a-assets>
-            <img id="sky" src="sky.png">
+            <img id="lego" src="./images/360/lego_conv.jpg">
         </a-assets>
 
-        <!-- An equirectangular image as a background -->
-        <a-sky src="#sky"></a-sky>
         <!-- A plain color as a background -->
         <a-sky color="#6EBAA7"></a-sky>
 
-        <a-anchor hit-testing-enabled="true">
+        <!-- An equirectangular image as a background -->
+        <a-sky src="#lego"></a-sky>
+
+        <a-anchor>
             <!-- a-plane -->
             <a-plane width="2" height="1" position="0 0 0" rotation="-90 0 0" color="blue" material="opacity: 0.5;">
                 <a-text value="Ini adalah sebuah bidang" color="#111" position="0 0.6 0" align="center"></a-text>
             </a-plane>
         </a-anchor>
-        <a-entity camera static></a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

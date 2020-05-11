@@ -22,13 +22,10 @@
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
 
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
-
-        <!-- add a barcode marker value 1 -->
-        <a-marker preset="hiro">
+        <a-marker>
             <a-box position="0 0.5 0" material="color: green; opacity: 0.5;">
                 <a-text value="Marker Hiro" rotation="-90 0 0" color="magenta" align="center"></a-text>
+                <a-icosahedron scale="0.3 0.3 0.3" animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear; "></a-icosahedron>
             </a-box>
         </a-marker>
 
@@ -37,7 +34,8 @@
         <a-box position="0 0 -1" scale="5 5 5" rotation="45 45 45" color="blue" depth="0.2" height="0.4" width="0.6" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;">
         </a-box>
         <a-text value="Gunakan marker hiro" position="0 0 6" color="yellow" align="center"></a-text>
-
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
 
     </a-scene>
     <!-- UI Element outside a-scene -->

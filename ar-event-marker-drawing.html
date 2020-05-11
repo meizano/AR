@@ -13,15 +13,15 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
-
-        <!-- add a simple camera -->
-        <a-entity camera static></a-entity>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
 
         <!-- handle hiro marker -->
-        <a-marker preset="hiro"></a-marker>
+        <a-marker></a-marker>
 
         <a-entity id="penampung"></a-entity>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
     </a-scene>
     <script>
         // a-marker

@@ -13,17 +13,17 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
-
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
 
         <!-- handle hiro marker -->
         <a-marker preset="hiro">
-            <a-sphere position="0 0 0" color="red" material="opacity: 0.5; color: blue;" radius="0.5"></a-sphere>
+            <a-sphere color="red" material="opacity: 0.5; color: blue;" radius="0.5"></a-sphere>
         </a-marker>
 
-        <a-box position="0 0 0" color="red" material="opacity: 0.5; color: red;"></a-box>
+        <a-box color="red" material="opacity: 0.5; color: red;"></a-box>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
 
     </a-scene>
     <script>
