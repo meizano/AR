@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>WebAR: UI using CSS</title>
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <style>
+        /* Mengatur posisi elemen pada halaman */
+        
+        #UI {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+        }
+        /* Styling */
+        
+        #UI {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2em;
+            font-weight: 400;
+            text-align: center;
+            color: orange;
+            background-color: blue;
+            display: block;
+            width: 10em;
+        }
+    </style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
+
+        <!-- add a hiro marker-->
+        <a-marker preset="hiro">
+            <a-box position="0 0.5 0" material="color: green; opacity: 0.5;">
+                <a-text value="Marker Hiro" position="0 0.55 0" rotation="-90 0 0" color="magenta" align="center"></a-text>
+            </a-box>
+        </a-marker>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
+    </a-scene>
+
+    <!-- UI Element outside a-scene -->
+    <div id="UI">Gunakan marker hiro</div>
+
+</body>
+
+</html>

@@ -15,7 +15,7 @@
         
         #UI {
             position: fixed;
-            bottom: 1rem;
+            top: 1rem;
             left: 1rem;
         }
         /* Styling */
@@ -30,14 +30,33 @@
             display: block;
             width: 10em;
         }
+        
+        .buttons {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .say-hi-button {
+            padding: 0.25em;
+            border-radius: 4px;
+            border: none;
+            background: white;
+            color: black;
+            width: 4em;
+            height: 2em;
+        }
     </style>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
-
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
 
         <!-- add a hiro marker-->
         <a-marker preset="hiro">
@@ -45,10 +64,31 @@
                 <a-text value="Marker Hiro" position="0 0.55 0" rotation="-90 0 0" color="magenta" align="center"></a-text>
             </a-box>
         </a-marker>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+
     </a-scene>
 
     <!-- UI Element outside a-scene -->
     <div id="UI">Gunakan marker hiro</div>
+    <div class="buttons">
+        <button class="say-hi-button">SAY HI!</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document
+                .querySelector(".say-hi-button")
+                .addEventListener("click", function() {
+                    // here you can change also a-scene or a-entity properties, like
+                    // changing your 3D model source, size, position and so on
+                    // or you can just open links, trigger actions...
+                    alert("Hi there!");
+                });
+        };
+    </script>
+    <!-- reference: https://ar-js-org.github.io/AR.js-Docs/ui-events/ -->
 
 </body>
 

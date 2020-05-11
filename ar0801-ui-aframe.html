@@ -15,9 +15,6 @@
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'>
 
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
-
         <!-- add a hiro marker -->
         <a-marker preset="hiro">
             <a-box position="0 0.5 0" material="color: green; opacity: 0.5;">
@@ -34,6 +31,9 @@
             <a-text value="Gunakan marker hiro" color="orange" align="center"></a-text>
             <a-box rotation="45 45 45" position="1.5 0 0" scale=".3 .3 .3" color="blue" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-box>
         </a-entity>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 

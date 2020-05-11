@@ -14,9 +14,12 @@
 
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+
+        <a-marker preset="hiro"></a-marker>
+
         <!-- add a simple camera -->
         <a-entity camera></a-entity>
-        <a-marker preset="hiro"></a-marker>
+
     </a-scene>
     <script>
         // mengakses DOM marker

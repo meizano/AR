@@ -24,13 +24,13 @@
                 let marker = document.createElement("a-marker");
                 marker.setAttribute("type", "barcode");
                 marker.setAttribute("value", i + 1);
-                let labelRuangan = document.createElement('a-text');
+                let labelRuangan = document.createElement("a-text");
                 let informasi = "";
                 informasi += ruang[i].nama + " sedang " + ruang[i].dipakai;
-                labelRuangan.setAttribute('value', informasi);
-                labelRuangan.setAttribute('rotation', '-90 0 0');
-                labelRuangan.setAttribute('color', 'green');
-                labelRuangan.setAttribute('align', 'center');
+                labelRuangan.setAttribute("value", informasi);
+                labelRuangan.setAttribute("rotation", "-90 0 0");
+                labelRuangan.setAttribute("color", "green");
+                labelRuangan.setAttribute("align", "center");
                 marker.appendChild(labelRuangan);
                 scenel.appendChild(marker);
             }
@@ -63,13 +63,13 @@
             let marker = document.createElement("a-marker");
             marker.setAttribute("type", "barcode");
             marker.setAttribute("value", i + 1);
-            let labelRuangan = document.createElement('a-text');
+            let labelRuangan = document.createElement("a-text");
             let informasi = "";
             informasi += ruangan[i].nama + " sedang " + ruangan[i].dipakai;
-            labelRuangan.setAttribute('value', informasi);
-            labelRuangan.setAttribute('rotation', '-90 0 0');
-            labelRuangan.setAttribute('color', 'blue');
-            labelRuangan.setAttribute('align', 'center');
+            labelRuangan.setAttribute("value", informasi);
+            labelRuangan.setAttribute("rotation", "-90 0 0");
+            labelRuangan.setAttribute("color", "blue");
+            labelRuangan.setAttribute("align", "center");
             marker.appendChild(labelRuangan);
             scene.appendChild(marker);
         }
