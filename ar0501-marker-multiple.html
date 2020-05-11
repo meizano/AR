@@ -15,7 +15,7 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: true;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;">
 
         <!-- create assets -->
         <a-assets timeout="900000">
@@ -25,18 +25,17 @@
             <a-asset-item id="motorbike" src="./assets/motorbike/scene.gltf"></a-asset-item>
             <a-asset-item id="helmet" src="./assets/damagedHelmet/damagedHelmet.gltf"></a-asset-item>
             <a-asset-item id="skull" src="./assets/skull_downloadable/scene.gltf"></a-asset-item>
-            <a-asset-item id="foto1" src="./images/photo/DSC00013.jpg"></a-asset-item>
-            <a-asset-item id="foto2" src="./images/photo/DSC00016.jpg"></a-asset-item>
-            <a-asset-item id="foto3" src="./images/photo/DSC02977.jpg"></a-asset-item>
-            <a-asset-item id="foto4" src="./images/photo/DSC03357.jpg"></a-asset-item>
-            <a-asset-item id="exoItalicFont" src="./assets/fonts/exo2BlackItalic.typeface.json"></a-asset-item>
+            <img id="bougenville" src="./images/photo/bougenville.jpg">
+            <img id="kio" src="./images/photo/kio.jpg">
+            <img id="mahasiswa" src="./images/photo/mahasiswa.jpg">
+            <img id="airterjun" src="./images/photo/wisata-air-terjun.jpg">
         </a-assets>
         <!-- handle unknown marker -->
         <a-marker type="unknown">
             <a-box depth="1" height="1" width="1" position="0 0.5 0" material="opacity: 0.5; side:double; color:purple;"></a-box>
         </a-marker>
 
-        <!-- handle hiro marker -->
+        handle hiro marker
         <a-marker preset="hiro">
             <a-entity gltf-model="#drone" animation-mixer></a-entity>
         </a-marker>
@@ -81,20 +80,19 @@
 
         <!-- handle matrix marker -->
         <a-marker type="barcode" value="5">
-            <a-image src="#foto1" rotation="-90 0 0" width="2" height="1">
-                <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam; font: #exoItalicFont; style: italic; size: 0.4; weight: bold; height: 0;" material="shader: flat; color: blue" align="center"></a-entity>
+            <a-image src="#bougenville" rotation="-90 0 0" width="2" height="1">
+                <a-entity position="0 -2.5 0" text-geometry="value: Perpustakaan Sekolah Alam;  style: italic; size: 0.4; weight: bold; height: 0;" material="shader: flat; color: blue" align="center"></a-entity>
             </a-image>
-
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type="barcode" value="6">
-            <a-image src="#foto2" rotation="-90 0 0" width="2" height="1"></a-image>
+            <a-image src="#kio" rotation="-90 0 0" width="2" height="1"></a-image>
         </a-marker>
 
         <!-- handle matrix marker -->
         <a-marker type="barcode" value="7">
-            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white" src="#foto3">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white" src="#mahasiswa">
                 <a-text value="Bunga" color="#111" position="0 -0.7 0" align="center"></a-text>
                 <a-sphere color="blue" position="-0.7 -0.7 0" radius="0.2"></a-sphere>
                 <a-sphere color="red" position="0.7 -0.7 0" radius="0.2"></a-sphere>
@@ -103,7 +101,7 @@
 
         <!-- handle matrix marker -->
         <a-marker type="barcode" value="8">
-            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white" src="#foto4">
+            <a-plane width="1" height="1" position="0 0 0" rotation="-90 0 0" color="white" src="#airterjun">
                 <a-torus-knot radius="0.06" radius-tubular="0.05" position="0.7 -0.7 0">
                 </a-torus-knot>
                 <a-torus-knot radius="0.06" radius-tubular="0.05" position="-0.7 -0.7 0">
@@ -113,12 +111,12 @@
 
         <!-- handle custom marker -->
         <a-marker preset="custom" type="pattern" url="./marker/datamatrix-1234567890/marker-datamatrix-1234567890.patt">
-            <a-image src="#foto1" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
+            <a-image src="#kio" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
         </a-marker>
 
         <!-- handle custom marker -->
         <a-marker preset="custom" type="pattern" url="./marker/unila/pattern-Unila-warna.patt">
-            <a-image src="#foto2" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
+            <a-image src="#airterjun" rotation="-90 0 0" width="1" height="1" position="-1 0 -1"></a-image>
         </a-marker>
 
         <!-- add a simple camera -->
