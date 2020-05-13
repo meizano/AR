@@ -46,13 +46,14 @@
     <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
 
         <a-marker>
-            <a-entity id="obj" rotation="-90 0 0" position="0 0.5 0"></a-entity>
-            <a-gltf-model src="./assets/skull_downloadable/scene.gltf" orientation-listener scale="0.3 0.3 0.3"></a-gltf-model>
-            <a-box material="opacity: 0.5;"></a-box>
-            <a-plane width=1 height=1 depth=0 rotation="90 0 0" position="0 -0.5 0" material="color: white;"></a-box>
+            <a-entity id="obj" rotation="-90 0 0" position="0 0.5 0">
+                <a-gltf-model src="./assets/skull_downloadable/scene.gltf" orientation-listener scale="0.3 0.3 0.3"></a-gltf-model>
+                <a-box material="opacity: 0.5;"></a-box>
+                <a-plane width=1 height=1 depth=0 rotation="0 0 0" position="0 0 -0.5" material="color: white;"></a-box>
+            </a-entity>
         </a-marker>
 
-        <a-entity camera></a-entity>
+        <a-entity camera look-controls-enabled="true"></a-entity>
     </a-scene>
     <!-- UI Element outside a-scene -->
     <div id="UI" class="UI">Marker information here.</div>

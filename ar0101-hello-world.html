@@ -15,12 +15,12 @@
 <body style="margin : 0px; overflow: hidden;">
     <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
-    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+    <a-scene embedded arjs>
 
-        <!-- handle hiro marker -->
+        <!-- handle default marker -->
         <!-- a-marker dengan preset hiro akan membuat AR.js memindai marker hiro yang standar tersedia di AR.js -->
         <!-- marker hiro dapat dicetak di dalam direktori pattern dengan nama berkas "Hiro pattern with border.pdf" -->
-        <a-marker preset="hiro">
+        <a-marker>
             <!-- Semua entity yang dibuat di dalam a-marker tersemat pada marker -->
             <a-box position="0 0.5 0" material="color: green; opacity: 0.5;"></a-box>
         </a-marker>

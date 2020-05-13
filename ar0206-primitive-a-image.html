@@ -21,22 +21,24 @@
             <img id="airterjun" src="./images/photo/wisata-air-terjun.jpg">
         </a-assets>
         <a-anchor>
-            <!-- a-image -->
-            <!-- https://aframe.io/docs/1.0.0/primitives/a-image.html -->
+            <a-entity rotation="-90 0 0">
+                <!-- a-image -->
+                <!-- https://aframe.io/docs/1.0.0/primitives/a-image.html -->
 
-            <!-- Using the asset management system. -->
-            <a-image src="#bougenville" height="3.0" radius="5.7" theta-length="72" rotation="0 100 0" scale="0.8 0.8 0.8"></a-image>
+                <!-- Using the asset management system. -->
+                <a-image src="#bougenville" position="0 2 0" height="3.0" radius="5.7" theta-length="72" rotation="0 0 0" scale="0.8 0.8 0.8"></a-image>
 
-            <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-            <a-image src="./images/photo/kio.jpg"></a-image>
+                <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
+                <a-image src="./images/photo/kio.jpg"></a-image>
 
-            <!-- a-curvedimage -->
-            <!-- https://aframe.io/docs/1.0.0/primitives/a-curvedimage.html -->
-            <!-- Using the asset management system. -->
-            <a-curvedimage src="#airterjun" height="3.0" radius="5.7" theta-length="72" rotation="0 100 0" scale="0.8 0.8 0.8"></a-curvedimage>
+                <!-- a-curvedimage -->
+                <!-- https://aframe.io/docs/1.0.0/primitives/a-curvedimage.html -->
+                <!-- Using the asset management system. -->
+                <a-curvedimage src="#airterjun" height="3.0" radius="5.7" theta-length="72" rotation="0 100 0" scale="0.8 0.8 0.8"></a-curvedimage>
 
-            <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-            <a-curvedimage src="./images/photo/mahasiswa.jpg"></a-curvedimage>
+                <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
+                <a-curvedimage src="./images/photo/mahasiswa.jpg" rotation="0 45 0"></a-curvedimage>
+            </a-entity>
         </a-anchor>
         <a-entity camera></a-entity>
     </a-scene>

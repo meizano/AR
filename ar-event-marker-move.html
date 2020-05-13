@@ -11,13 +11,13 @@
     <script src="./js/arjs/aframe-ar.js"></script>
     <title>WebAR: Marker Move Object</title>
     <script>
-        let edo;
+        // let edo;
         AFRAME.registerComponent("move", {
-            init: function() {
-                edo = this;
-            },
+            // init: function() {
+            //     edo = this;
+            // },
             tick: function() {
-                var obj3d = this.el.sceneEl.querySelector("a-marker");
+                let obj3d = this.el.sceneEl.querySelector("a-marker");
                 // console.log(obj3d);
                 this.el.object3D.setRotationFromQuaternion(obj3d.object3D.quaternion);
                 this.el.object3D.position.set(obj3d.object3D.position.x, obj3d.object3D.position.y, obj3d.object3D.position.z);
