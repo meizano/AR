@@ -11,11 +11,8 @@
     <script src="./js/arjs/aframe-ar.js"></script>
     <title>WebAR: Marker Move Object</title>
     <script>
-        // let edo;
+        // https://aframe.io/docs/1.0.0/introduction/writing-a-component.html
         AFRAME.registerComponent("move", {
-            // init: function() {
-            //     edo = this;
-            // },
             tick: function() {
                 let obj3d = this.el.sceneEl.querySelector("a-marker");
                 // console.log(obj3d);
