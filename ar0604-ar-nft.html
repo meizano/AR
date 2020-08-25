@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <!-- Correcting zooming issue -->
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>WebAR: Image Tracking (NFT)</title>
+    <title>WebAR: Image Tracking (NFT) lokal</title>
     <!-- Library untuk VR membangun 3D -->
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan NFT dan menyematkan kamera-->
@@ -23,17 +23,16 @@
         <a-entity camera></a-entity>
 
         <!-- we use cors proxy to avoid cross-origin problems -->
-        <a-nft type="nft" url="marker/markerbarcode1/1" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5">
-            <a-circle color="purple" radius="1" rotation="-90 0 0">
-                <a-box position="1 1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: white;"
-                    animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
-                <a-text position="0 0 0.2" value="?" color="white" align="center" width="30">
+        <a-nft type="nft" url="https://meizano.github.io/AR/marker/i3e/i3e-cover" smooth="true" smoothCount="10"
+            smoothTolerance=".01" smoothThreshold="5">
+            <a-plane color="blue" height="1" width="1" rotation="-90 0 0">
+                <a-text position="0 1 0.2" value="atas" color="white" align="center" width="10">
                 </a-text>
-                <a-box position="-1 -1 0" depth="0.3" height="0.3" width="0.3" rotation="0 0 0" material="color: white;"
-                    animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear"></a-box>
-            </a-circle>
-            </a-entity>
+                <a-text position="0 0 0.2" value="tengah" color="white" align="center" width="10">
+                </a-text>
+                <a-text position="0 -1 0.2" value="bawah" color="white" align="center" width="10">
+                </a-text>
+                </a-circle>
         </a-nft>
 
     </a-scene>

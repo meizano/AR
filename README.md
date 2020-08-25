@@ -34,8 +34,11 @@ Materi dibagi dalam 12 bagian, yaitu:
 * [ar0403-marker-custom](https://meizano.github.io/AR/ar0403-marker-custom.html)
 5. AR Multiple Marker
 * [ar0501-marker-multiple](https://meizano.github.io/AR/ar0501-marker-multiple.html)
-6. AR Image Tracking (NFT)
-* [ar0601-ar-nft](https://meizano.github.io/AR/ar0601-ar-nft.html)
+6. AR Image Tracking (NFT) | [Create NFT Marker](https://carnaux.github.io/NFT-Marker-Creator/)
+* [ar0601-ar-nft](https://meizano.github.io/AR/ar0601-ar-nft.html) | [NFT marker](https://meizano.github.io/AR/marker/trex/trex-image-big.jpeg)
+* [ar0602-ar-nft](https://meizano.github.io/AR/ar0602-ar-nft.html) | [NFT marker](https://meizano.github.io/AR/marker/kio/Kio.jpg)
+* [ar0603-ar-nft](https://meizano.github.io/AR/ar0603-ar-nft.html) | [NFT marker](https://meizano.github.io/AR/marker/markerbarcode1/1.jpg)
+* [ar0604-ar-nft](https://meizano.github.io/AR/ar0604-ar-nft.html) | [NFT marker](https://meizano.github.io/AR/i3e/i3e-cover.jpg)
 7. AR Location Based
 * [ar0701-ar-location](https://meizano.github.io/AR/ar0701-ar-location.html)
 8. AR UI
