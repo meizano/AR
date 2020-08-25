@@ -15,18 +15,33 @@
 <body style="margin : 0px; overflow: hidden;">
     <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
-    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
 
         <!-- camera -->
         <!-- camera: berguna untuk meletakkan layer dunia nyata yang ditangkap menggunakan kamera -->
         <a-entity camera></a-entity>
 
         <!-- we use cors proxy to avoid cross-origin problems -->
-        <a-nft type="nft" url="https://meizano.github.io/AR/marker/kio/Kio" smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
+        <a-nft type="nft" url="https://meizano.github.io/AR/marker/kio/Kio" smooth="true" smoothCount="10"
+            smoothTolerance=".01" smoothThreshold="5">
             <a-sphere color="red" material="opacity: 0.5; color: blue;" radius="0.5"></a-sphere>
         </a-nft>
 
     </a-scene>
+    <script>
+        // Detecting single marker
+        let m = document.querySelector("a-nft");
+
+        m.addEventListener("markerFound", (e) => {
+            markerInfo(m, true, ui);
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            markerInfo(m, false, ui);
+        });
+    </script>
+
 </body>
 
 </html>

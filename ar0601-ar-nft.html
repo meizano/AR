@@ -15,19 +15,37 @@
 <body style="margin : 0px; overflow: hidden;">
     <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
-    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
 
         <!-- camera -->
         <!-- camera: berguna untuk meletakkan layer dunia nyata yang ditangkap menggunakan kamera -->
         <a-entity camera></a-entity>
 
         <!-- we use cors proxy to avoid cross-origin problems -->
-        <a-nft type="nft" url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex" smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
-            <a-entity gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf" scale="5 5 5" position="50 150 0">
+        <a-nft type="nft"
+            url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
+            smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
+            <a-entity
+                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+                scale="5 5 5" position="50 150 0">
             </a-entity>
         </a-nft>
 
     </a-scene>
+    <script>
+        // Detecting single marker
+        let m = document.querySelector("a-nft");
+
+        m.addEventListener("markerFound", (e) => {
+            markerInfo(m, true, ui);
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            markerInfo(m, false, ui);
+        });
+    </script>
+
 </body>
 
 </html>

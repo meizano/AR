@@ -36,6 +36,19 @@
         </a-nft>
 
     </a-scene>
-</body>
+    <script>
+        // Detecting single marker
+        let m = document.querySelector("a-nft");
 
-</html>
+        m.addEventListener("markerFound", (e) => {
+            markerInfo(m, true, ui);
+        });
+
+        m.addEventListener("markerLost", (e) => {
+            markerInfo(m, false, ui);
+        }); <
+        /s <
+        /body>
+
+        <
+        /html>
