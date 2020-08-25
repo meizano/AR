@@ -10,6 +10,37 @@
     <script src="./js/aframe/aframe.min.js"></script>
     <!-- Library untuk AR yang melakukan pengenalan NFT dan menyematkan kamera-->
     <script src="./js/arjs/aframe-ar-nft.js"></script>
+    <style>
+        /* Mengatur posisi elemen pada halaman */
+        
+        #UI {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+        }
+        /* Styling */
+        
+        #UI {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            font-weight: 200;
+            text-align: center;
+            color: orange;
+            background-color: blue;
+            display: block;
+        }
+        
+        .found {
+            color: red;
+            background-color: green;
+        }
+        
+        .lost {
+            color: green;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
