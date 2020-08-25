@@ -13,6 +13,7 @@
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
+    <div id="UI">Marker information here.</div>
     <!-- embedded vr-mode-ui="enabled: false" adalah untuk menonaktifkan tombol VR (stereocospic view) -->
     <!-- debugUIEnabled: false adalah untuk menonaktifkan UI untuk debugging (true hanya untuk troubleshooting) -->
     <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
@@ -38,8 +39,33 @@
 
     </a-scene>
     <script>
+        let ui = document.querySelector("#UI");
+
+        // Function to display information
+        function markerInfo(marker, evt, infoui) {
+            let posx = marker.object3D.position.x;
+            let posy = marker.object3D.position.y;
+            let posz = marker.object3D.position.z;
+
+            let message = "marker at x: " + marker.object3D.position.x + ", y: " + marker.object3D.position.x +
+                ", z: " + marker.object3D.position.z;
+
+
+            if (evt) {
+                infoui.classList.remove("lost");
+                infoui.classList.add("found");
+                message = "Found " + message;
+            } else {
+                infoui.classList.remove("found");
+                infoui.classList.add("lost");
+                message = "Lost " + message;
+            }
+
+            infoui.innerHTML = message;
+        }
+
         // Detecting single marker
-        let m = document.querySelector("a-nft");
+        let m = document.querySelector("a-marker");
 
         m.addEventListener("markerFound", (e) => {
             markerInfo(m, true, ui);
