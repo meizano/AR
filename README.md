@@ -7,6 +7,9 @@ Web AR adalah implementasi AR pada web.
 ## Teknologi pendukung
 * A-Frame: Pustaka untuk melakukan rendering 3D pada web yang mengikuti aturan tag html. sumber: https://aframe.io/
 * WebAR: Pustaka untuk menangkap dunia nyata melalui kamera dan pemindaian penanda pada dunia nyata. AR.js mendukung penggunaan NFT dan marker. sumber: https://github.com/AR-js-org/AR.js
+## Marker
+* Marker AR dimanfaatkan untuk mendeteksi posisi di dunia nyata. Marker dapat diakses pada direktori [marker](https://meizano.github.io/AR/marker/). Contoh marker hiro yang dipakaia adalah sebagai berikut:
+![Marker AR Hiro](https://meizano.github.io/AR/marker/HIRO.jpg?raw=true "Marker AR Hiro")
 
 ## Materi
 Materi dibagi dalam 12 bagian, yaitu:
