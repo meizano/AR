@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Splash Screen */
+.splash {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.splash img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Dashboard */
+.dashboard {
+    text-align: center;
+    padding: 20px;
+}
+
+.dashboard .menu {
+    margin-top: 20px;
+}
+
+.dashboard .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* About Page */
+.about {
+    text-align: center;
+    padding: 20px;
+}
