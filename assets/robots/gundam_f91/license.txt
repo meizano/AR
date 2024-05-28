@@ -1,0 +1,8 @@
+Model Information:
+* title:	Gundam F91
+* source:	https://sketchfab.com/3d-models/gundam-f91-6cdee7a6566b4999967431107f2197fe
+* author:	Tigerar1 (https://sketchfab.com/allanromanreyes)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

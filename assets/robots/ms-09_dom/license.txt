@@ -1,0 +1,8 @@
+Model Information:
+* title:	MS-09 Dom
+* source:	https://sketchfab.com/3d-models/ms-09-dom-2fd27e25faa5444fb3b0cd1d84118ef4
+* author:	Tigerar1 (https://sketchfab.com/allanromanreyes)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

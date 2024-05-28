@@ -1,0 +1,8 @@
+Model Information:
+* title:	Walking_robot
+* source:	https://sketchfab.com/3d-models/walking-robot-41d51b15045d4af3a730b48e7b39345e
+* author:	iamsunroy (https://sketchfab.com/iamsunroy)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

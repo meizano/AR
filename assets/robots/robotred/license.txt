@@ -1,0 +1,8 @@
+Model Information:
+* title:	Robot
+* source:	https://sketchfab.com/3d-models/robot-a439c6136df649909659c321831125d1
+* author:	Konstantin Morozov (https://sketchfab.com/redstar0001)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
