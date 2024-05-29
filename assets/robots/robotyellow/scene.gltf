@@ -3,165 +3,106 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 14310,
+      "count": 20785,
       "max": [
-        0.7288655638694763,
-        1.9336416721343994,
-        2.8877172470092773
+        0.8705369830131531,
+        0.9123839735984802,
+        0.4131070077419281
       ],
       "min": [
-        -0.8710147738456726,
-        -1.9336416721343994,
-        -1.9534717798233032
+        -0.8705369830131531,
+        -0.9808949828147888,
+        -0.4255029857158661
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 171720,
+      "byteOffset": 249420,
       "componentType": 5126,
-      "count": 14310,
+      "count": 20785,
       "max": [
         1.0,
-        1.0,
-        1.0
+        0.9999293684959412,
+        0.9992397427558899
       ],
       "min": [
         -1.0,
-        -1.0,
-        -1.0
+        -0.9999552369117737,
+        -0.9993380904197693
       ],
       "type": "VEC3"
     },
     {
-      "bufferView": 3,
+      "bufferView": 1,
       "componentType": 5126,
-      "count": 14310,
+      "count": 20785,
       "max": [
-        1.0,
-        1.0,
-        1.0,
+        0.9908609986305237,
         1.0
       ],
       "min": [
-        -1.0,
-        -1.0,
-        -1.0,
-        1.0
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 14310,
-      "max": [
-        1.0000001192092896,
-        0.998306393623352
-      ],
-      "min": [
-        -1.8720095695812233e-08,
-        -1.000210225754472e-08
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 114480,
-      "componentType": 5126,
-      "count": 14310,
-      "max": [
-        1.0000001192092896,
-        0.998306393623352
-      ],
-      "min": [
-        -1.8720095695812233e-08,
-        -1.000210225754472e-08
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 228960,
-      "componentType": 5126,
-      "count": 14310,
-      "max": [
-        1.0000001192092896,
-        0.998306393623352
-      ],
-      "min": [
-        -1.8720095695812233e-08,
-        -1.000210225754472e-08
+        0.0,
+        0.0
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 61698,
+      "count": 38442,
       "type": "SCALAR"
     }
   ],
   "asset": {
     "extras": {
-      "author": "HyliGun174 (https://sketchfab.com/HyliGun174)",
-      "license": "SKETCHFAB Standard (https://sketchfab.com/licenses)",
-      "source": "https://sketchfab.com/3d-models/robot-d129be6351904825af790cbcb452c5c7",
-      "title": "Robot"
+      "author": "ONEPUT (https://sketchfab.com/ONEPUT)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/robot-f71780758a79469d9988793e3a4a0f74",
+      "title": "robot"
     },
-    "generator": "Sketchfab-15.98.0",
+    "generator": "Sketchfab-12.67.0",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 246792,
+      "byteLength": 153768,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 343440,
-      "byteOffset": 246792,
+      "byteLength": 166280,
+      "byteOffset": 153768,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 343440,
-      "byteOffset": 590232,
+      "byteLength": 498840,
+      "byteOffset": 320048,
       "byteStride": 12,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 228960,
-      "byteOffset": 933672,
-      "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 1162632,
+      "byteLength": 818888,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/Material_1_baseColor.jpg"
+      "uri": "textures/aiStandard1_baseColor.jpeg"
     },
     {
-      "uri": "textures/Material_1_metallicRoughness.jpg"
+      "uri": "textures/aiStandard1_metallicRoughness.png"
     },
     {
-      "uri": "textures/Material_1_emissive.jpg"
-    },
-    {
-      "uri": "textures/Material_1_normal.jpg"
+      "uri": "textures/aiStandard1_emissive.jpeg"
     }
   ],
   "materials": [
@@ -175,10 +116,7 @@
       "emissiveTexture": {
         "index": 2
       },
-      "name": "Material_1",
-      "normalTexture": {
-        "index": 3
-      },
+      "name": "aiStandard1",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
           "index": 0
@@ -191,18 +129,15 @@
   ],
   "meshes": [
     {
-      "name": "Sphere.006_Material_1_0",
+      "name": "aiStandard1",
       "primitives": [
         {
           "attributes": {
             "NORMAL": 1,
             "POSITION": 0,
-            "TANGENT": 2,
-            "TEXCOORD_0": 3,
-            "TEXCOORD_1": 4,
-            "TEXCOORD_2": 5
+            "TEXCOORD_0": 2
           },
-          "indices": 6,
+          "indices": 3,
           "material": 0,
           "mode": 4
         }
@@ -215,13 +150,13 @@
         1
       ],
       "matrix": [
-        -2.220446049250313e-16,
-        -2.220446049250313e-16,
         1.0,
         0.0,
-        1.0,
-        -4.930380657631324e-32,
+        0.0,
+        0.0,
+        0.0,
         2.220446049250313e-16,
+        -1.0,
         0.0,
         0.0,
         1.0,
@@ -239,58 +174,34 @@
         2
       ],
       "matrix": [
-        0.009999999776482582,
+        1.0,
         0.0,
         0.0,
         0.0,
         0.0,
+        -4.371139006309477e-08,
+        0.999999999999999,
         0.0,
-        0.009999999776482582,
         0.0,
-        0.0,
-        -0.009999999776482582,
-        0.0,
+        -0.999999999999999,
+        -4.371139006309477e-08,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0
       ],
-      "name": "robot.fbx"
+      "name": "Collada visual scene group"
     },
     {
       "children": [
         3
       ],
-      "name": "RootNode"
-    },
-    {
-      "children": [
-        4
-      ],
-      "matrix": [
-        100.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        -1.629206793918314e-05,
-        -99.99999999999868,
-        0.0,
-        0.0,
-        99.99999999999868,
-        -1.629206793918314e-05,
-        0.0,
-        2.216491222381592,
-        195.5849609375,
-        0.0023609260097146034,
-        1.0
-      ],
-      "name": "Sphere.006"
+      "name": "lowfinal_uv_low3_polySurface3"
     },
     {
       "mesh": 0,
-      "name": "Sphere.006_Material_1_0"
+      "name": "aiStandard1"
     }
   ],
   "samplers": [
@@ -322,10 +233,6 @@
     {
       "sampler": 0,
       "source": 2
-    },
-    {
-      "sampler": 0,
-      "source": 3
     }
   ]
 }

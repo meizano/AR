@@ -1,8 +1,11 @@
 Model Information:
-* title:	Mobile Suit Gundam GOUF gunpla
-* source:	https://sketchfab.com/3d-models/mobile-suit-gundam-gouf-gunpla-ef41ac9c8fa848829a53dd27eaa2686c
-* author:	Austin Beaulier (https://sketchfab.com/Austin.Beaulier)
+* title:	MS-07B-3 Gouf Custom
+* source:	https://sketchfab.com/3d-models/ms-07b-3-gouf-custom-561414d110374f798bd9aeab84f8d74c
+* author:	Tigerar1 (https://sketchfab.com/allanromanreyes)
 
 Model License:
-* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
-* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "MS-07B-3 Gouf Custom" (https://sketchfab.com/3d-models/ms-07b-3-gouf-custom-561414d110374f798bd9aeab84f8d74c) by Tigerar1 (https://sketchfab.com/allanromanreyes) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
