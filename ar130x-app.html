@@ -2,7 +2,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+    <!-- the folllowing script is needed to animate gltf files -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
+    <!-- MindAR library -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
        .back-btn {
@@ -52,6 +54,7 @@
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         <a-entity mindar-image-target="targetIndex: 0">
             <a-plane src="#buddy-robCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
                 <a-gltf-model rotation="-45 -90 -90" position="0 -0.25 0.1" scale="0.075 0.075 0.075" src="#buddy-robModel" animation-mixer></a-gltf-model>
             </a-plane>
             
@@ -83,7 +86,8 @@
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 6">
             <a-plane src="#robot-unicycleCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
-                <a-gltf-model rotation="-90 -90 -90" position="0 0 0" scale="0.075 0.075 0.075" src="#robot-unicycleModel" animation-mixer></a-gltf-model>
+                <!-- key 'clip' pada 'animation-mixer' menentukan animasi apa yang dijalankan, jika dikosongkan yang dipakai adalah default -->
+                <a-gltf-model rotation="-90 -90 -90" position="0 0 0" scale="0.075 0.075 0.075" src="#robot-unicycleModel" animation-mixer="clip: attackspinlonghands"></a-gltf-model>
             </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 7">
