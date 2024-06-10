@@ -13,6 +13,7 @@ body {
 }
 
 .splash img {
+    width: 80%;
     max-width: 80%;
     height: auto;
 }
@@ -20,25 +21,28 @@ body {
 /* Dashboard */
 .dashboard {
     text-align: center;
-    padding: 20px;
+    padding: 2em;
 }
 
 .dashboard .menu {
-    margin-top: 20px;
+    margin-top: 2em;
 }
 
+.title {
+    text-align: center;
+}
 .dashboard .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 10px;
+    display: block;
+    padding: 1em 2em;
+    margin: 0.5em 1em;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0.5em;
 }
 
 /* About Page */
 .about {
     text-align: center;
-    padding: 20px;
+    padding: 2em;
 }
