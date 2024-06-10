@@ -2,23 +2,22 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+    <!-- the folllowing script is needed to animate gltf files -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
+    <!-- MindAR library -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
        .back-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #333;
+    top: 1rem;
+    left: 2rem;
+    background-color: #20aaee;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 1rem;
+    border-radius: 0.5rem;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
     z-index: 1000; /* Ensure it's above other content */
-}
-
-.back-btn:hover {
-    background-color: #555;
 }
  
     </style>
@@ -28,6 +27,7 @@
         renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
         <a-assets>
+            <!-- Card Images -->
             <img id="buddy-robCard" src="./marker/AR Tracking Card-JPG/buddy-rob.jpg"></img>
             <img id="gundam_f91Card" src="./marker/AR Tracking Card-JPG/gundam_f91.jpg"></img>
             <img id="ms_goufCard" src="./marker/AR Tracking Card-JPG/ms_gouf.jpg"></img>
@@ -38,41 +38,77 @@
             <img id="robotyellowCard" src="./marker/AR Tracking Card-JPG/robotyellow.jpg"></img>
             <img id="the_big_bongisCard" src="./marker/AR Tracking Card-JPG/the_big_bongis.jpg"></img>
             <img id="walking_robotCard" src="./marker/AR Tracking Card-JPG/walking_robot.jpg"></img>
+            
+            <!-- 3D Models -->
+            <a-asset-item id="buddy-robModel" src="./assets/robots/buddy-rob/scene.gltf"></a-asset-item>
+            <a-asset-item id="gundam_f91Model" src="./assets/robots/gundam_f91/scene.gltf"></a-asset-item>
+            <a-asset-item id="ms_goufModel" src="./assets/robots/ms_gouf/scene.gltf"></a-asset-item>
+            <a-asset-item id="ms-09_domModel" src="./assets/robots/ms-09_dom/scene.gltf"></a-asset-item>
+            <a-asset-item id="robot_toyModel" src="./assets/robots/robot_toy/scene.gltf"></a-asset-item>
+            <a-asset-item id="robot-unicycleModel" src="./assets/robots/robot-unicycle/robot.gltf"></a-asset-item>
+            <a-asset-item id="robotredModel" src="./assets/robots/robotred/scene.gltf"></a-asset-item>
+            <a-asset-item id="robotyellowModel" src="./assets/robots/robotyellow/scene.gltf"></a-asset-item>
+            <a-asset-item id="the_big_bongisModel" src="./assets/robots/the_big_bongis/scene.gltf"></a-asset-item>
+            <a-asset-item id="walking_robotModel" src="./assets/robots/walking_robot/scene.gltf"></a-asset-item>
         </a-assets>
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         <a-entity mindar-image-target="targetIndex: 0">
-            <a-plane src="#buddy-robCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#buddy-robCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="-45 -90 -90" position="0 -0.25 0.1" scale="0.075 0.075 0.075" src="#buddy-robModel" animation-mixer></a-gltf-model>
+            </a-plane>
+            
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 1">
-            <a-plane src="#gundam_f91Card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#gundam_f91Card" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0" scale="0.0025 0.0025 0.0025" src="#gundam_f91Model" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 2">
-            <a-plane src="#ms_goufCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#ms_goufCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0" scale="0.0025 0.0025 0.0025" src="#ms_goufModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 3">
-            <a-plane src="#ms-09_domCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#ms-09_domCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0" scale="0.0025 0.0025 0.0025" src="#ms-09_domModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 4">
-            <a-plane src="#robot_toyCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#robot_toyCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0.25" scale="0.015 0.015 0.015" src="#robot_toyModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 5">
-            <a-plane src="#robot-unicycleCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#robotredCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0.1 0" scale="0.01 0.01 0.01" src="#robotredModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 6">
-            <a-plane src="#robotredCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#robot-unicycleCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <!-- key 'clip' pada 'animation-mixer' menentukan animasi apa yang dijalankan, jika dikosongkan yang dipakai adalah default -->
+                <a-gltf-model rotation="-90 -90 -90" position="0 0 0" scale="0.075 0.075 0.075" src="#robot-unicycleModel" animation-mixer="clip: attackspinlonghands"></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 7">
-            <a-plane src="#robotyellowCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#robotyellowCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0.5" scale="0.5 0.5 0.5" src="#robotyellowModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 8">
-            <a-plane src="#the_big_bongisCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#the_big_bongisCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0" scale="0.025 0.025 0.025" src="#the_big_bongisModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 9">
-            <a-plane src="#walking_robotCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#walking_robotCard" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+                <a-gltf-model rotation="90 0 0" position="0 0 0.2" scale="0.025 0.025 0.025" src="#walking_robotModel" animation-mixer></a-gltf-model>
+            </a-plane>
         </a-entity>
         
         </a-scene>
         <a href="./robotapp/dashboard.html" class="back-btn">Back</a>
+        <div id="UI">Marker information here.</div>
       </body>
 
 </html>

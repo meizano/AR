@@ -1,0 +1,288 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1497,
+      "max": [
+        4.0731201171875,
+        5.2701802253723145,
+        1.7836699485778809
+      ],
+      "min": [
+        -4.127339839935303,
+        -8.341850280761719,
+        -4.121860027313232
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 17964,
+      "componentType": 5126,
+      "count": 1497,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 8514,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 35928,
+      "componentType": 5126,
+      "count": 4526,
+      "max": [
+        8.193449974060059,
+        14.291099548339844,
+        1.8764599561691284
+      ],
+      "min": [
+        -9.305910110473633,
+        -4.508269786834717,
+        -10.2404203414917
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 90240,
+      "componentType": 5126,
+      "count": 4526,
+      "max": [
+        0.9959275126457214,
+        0.979627788066864,
+        0.994204044342041
+      ],
+      "min": [
+        -0.9979149103164673,
+        -0.9786579012870789,
+        -0.9990770220756531
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 34056,
+      "componentType": 5125,
+      "count": 7248,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "imafua (https://sketchfab.com/imafua)",
+      "license": "SKETCHFAB Standard (https://sketchfab.com/licenses)",
+      "source": "https://sketchfab.com/3d-models/the-big-bongis-84dc508c93e242c186a30fc468dec08c",
+      "title": "The Big Bongis"
+    },
+    "generator": "Sketchfab-16.11.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 63048,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 144552,
+      "byteOffset": 63048,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 207600,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Material.001",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4868970215320587,
+          0.4188383221626282,
+          0.30580848455429077,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cube_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Cube.001_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        4,
+        6
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        0.7307800000000001,
+        0.6428900000000002,
+        0.22944000000000006,
+        0.0,
+        -0.6819300000000001,
+        0.6725400000000001,
+        0.28752000000000005,
+        0.0,
+        0.030540000000000005,
+        -0.3665800000000001,
+        0.9298900000000001,
+        0.0,
+        8.0,
+        8.0,
+        20.865229999999997,
+        1.0
+      ],
+      "name": "Lamp"
+    },
+    {
+      "name": "Lamp"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        0.99937,
+        0.012740000000000003,
+        -0.03300000000000001,
+        0.0,
+        -0.010370000000000002,
+        0.99742,
+        0.07103000000000001,
+        0.0,
+        0.03382000000000001,
+        -0.07064000000000001,
+        0.99693,
+        0.0,
+        0.028040000000000002,
+        -0.008970000000000002,
+        13.10069,
+        1.0
+      ],
+      "name": "Cube"
+    },
+    {
+      "mesh": 0,
+      "name": "Cube_0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -4.6349599999999995,
+        9.928809999999999,
+        1.0
+      ],
+      "name": "Cube.001"
+    },
+    {
+      "mesh": 1,
+      "name": "Cube.001_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

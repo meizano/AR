@@ -1,0 +1,8 @@
+Model Information:
+* title:	Robotic Operating Buddy "R.O.B."(photogrammetry)
+* source:	https://sketchfab.com/3d-models/robotic-operating-buddy-robphotogrammetry-0a0b2325ceaf4d49a30973f6faa8fa1d
+* author:	Austin Beaulier (https://sketchfab.com/Austin.Beaulier)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

@@ -1,0 +1,8 @@
+Model Information:
+* title:	Robot Global Game Jam Oculus Medium Sculpt
+* source:	https://sketchfab.com/3d-models/robot-global-game-jam-oculus-medium-sculpt-bc8f1977bec044d1981aaf4cc6b4a727
+* author:	Austin Beaulier (https://sketchfab.com/Austin.Beaulier)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

@@ -1,0 +1,8 @@
+Model Information:
+* title:	The Big Bongis
+* source:	https://sketchfab.com/3d-models/the-big-bongis-84dc508c93e242c186a30fc468dec08c
+* author:	imafua (https://sketchfab.com/imafua)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
